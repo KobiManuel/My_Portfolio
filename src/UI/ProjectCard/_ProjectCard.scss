@@ -1,0 +1,226 @@
+.card {
+  width: fit-content;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80vw;
+  max-width: 80vw;
+  margin: 0 auto;
+  height: 100vh;
+  background: transparent;
+  justify-self: center;
+  align-self: center;
+  position: relative;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  scroll-snap-align: start;
+  
+.email-text {
+  cursor: pointer;
+  &:hover {
+    color: #ee5258;
+  }
+}
+  .project-card {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    &.visible {
+      opacity: 1;
+
+      &.animate-from-left {
+        animation: slide-in-left 1s ease-in-out;
+      }
+
+      &.animate-from-right {
+        animation: slide-in-top 1s ease-in-out;
+      }
+    }
+  }
+
+  .project-card:first-child {
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    background-color: transparent;
+    span:nth-child(2) {
+      position: relative;
+      width: 142px;
+      height: 22px;
+      &::before {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 88px;
+        height: 4px;
+        background-color: var(--secondary);
+      }
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        bottom: 0;
+        right: 0;
+        width: 88px;
+        height: 4px;
+        background-color: var(--secondary);
+      }
+    }
+    p {
+      font-family: "VW Headline Book", sans-serif;
+      font-size: 28px;
+      width: 500px;
+    }
+
+    h3 {
+      font-size: 5rem;
+      line-height: 6rem;
+      font-weight: normal;
+      text-shadow: 0 10px 30px rgba(2, 11, 22, 0.5);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    svg {
+        fill: white;
+         cursor: pointer;
+    }
+    a {
+      font-family: "VW Headline Book", sans-serif;
+      cursor: pointer;
+      width: 150px;
+      padding: 12px 0;
+      outline: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 600px;
+      background-color: var(--secondary);
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.7s linear;
+      border-radius: 10px;
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+
+  .project-card:nth-child(2) {
+    background-color: transparent;
+    position: relative;
+    right: 0;
+    width: 80%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    // background-image: url(../../assets/light2.png);
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    img {
+        position: absolute;
+        left: 0;
+      height: 400px;
+      width: 0;
+      height: 100%;
+      object-fit: cover;
+      &.visible {
+        width: 100%;
+        &.animate-to-right {
+          animation: unroll-animation 1s linear forwards;
+        }
+      }
+    }
+  }
+
+  .project-card:nth-child(2).blue-bg {
+    background-color: var(--primary) !important;
+  }
+
+  .project-card:nth-child(2).blue-bg::before {
+    content: "";
+    position: absolute;
+    left: 0; /* Adjusted to match the width of the red light */
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to right, #00231a , #ee5258);
+    animation: red-light-animation 1s linear forwards;
+  }
+}
+
+
+.ripple-1,
+.ripple-2,
+.ripple-3,
+.ripple-4,
+.ripple-5{
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: translate3d(-50%, 50%, 0);
+  animation-name: ripple;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  will-change: transform, opacity;
+}
+
+.ripple-1{
+  animation-delay: 0;
+}
+
+.ripple-2{
+  animation-delay: 1s;
+}
+
+.ripple-3{
+  animation-delay: 2s;
+}
+
+.ripple-4{
+  animation-delay: 3s;
+}
+
+.ripple-4{
+  animation-delay: 4s;
+}
+
+.ripple-5{
+  animation-delay: 5s;
+}
+
+@media screen and (max-width: 635px) {
+    .card {
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 50px 0;
+      z-index: 700000;
+      width: 90vw;
+      max-width: 90vw;
+       .project-card:first-child {
+      position: static !important;
+      height: 50%;
+    //   padding: 0 20px;
+      gap: 16px;
+    }
+     .project-card:nth-child(2) {
+      height: 50% !important;
+      width: 100%;
+    }
+    }
+}

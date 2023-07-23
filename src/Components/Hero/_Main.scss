@@ -1,0 +1,114 @@
+.hero {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  max-width: 80vw;
+  margin: 0 auto;
+  height: 100vh;
+  background: transparent;
+  justify-self: center;
+  align-self: center;
+  position: relative;
+  overflow-x: hidden !important;
+  scroll-snap-align: start;
+  overflow: hidden;
+
+  .project-card {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    &.visible {
+      opacity: 1;
+
+      &.animate-from-left {
+        animation: slide-in-left 1s ease-in-out;
+      }
+
+      &.animate-from-right {
+        animation: slide-in-right 1s ease-in-out;
+      }
+    }
+  }
+
+  .project-card:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background-color: transparent;
+    span {
+      position: relative;
+      width: 142px;
+      height: 22px;
+      &::before {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 88px;
+        height: 4px;
+        background-color: var(--secondary);
+      }
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        bottom: 0;
+        right: 0;
+        width: 88px;
+        height: 4px;
+        background-color: var(--secondary);
+      }
+    }
+    p {
+      font-family: "VW Headline Book", sans-serif;
+      font-size: 28px;
+    }
+
+    h3 {
+      font-size: 7rem;
+      line-height: 1;
+      font-weight: normal;
+      text-shadow: 0 10px 30px rgba(2, 11, 22, 0.5);
+      color: white;
+      width: fit-content;
+      text-transform: uppercase;
+    }
+  }
+
+  .project-card:nth-child(2) {
+    position: relative;
+    background-color: transparent;
+    height: 400px;
+    width: 400px;
+    border-radius: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    // background-image: url(../../assets/light2.png);
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    h6 {
+      font-size: 5rem;
+      letter-spacing: 0.1em;
+      text-shadow: 0 10px 15px rgba(2, 11, 22, 0.2);
+      color: #ee5258;
+      background-color: transparent;
+      font-weight: 900;
+      position: absolute;
+      z-index: 1000;
+    }
+    svg {
+      width: 100%;
+      transform: translate(-23px, -20px);
+      g {
+        stroke: white;
+        fill: rgba(255, 255, 255, 0.12);
+      }
+    }
+  }
+}

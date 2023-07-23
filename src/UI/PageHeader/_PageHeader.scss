@@ -1,0 +1,168 @@
+.page-header_container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start !important;
+  .backward-arrow {
+    position: absolute;
+    left: 40px;
+    top: 25px;
+    width: 60px;
+    cursor: pointer;
+    transition: all 0.7s ease-in;
+    opacity: 0;
+    transform: translateX(40px);
+    border: none;
+    outline: none;
+    background-color: transparent;
+    z-index: 7000;
+    img {
+        width: 60px;
+    }
+    &:hover {
+        transform: translateX(-20px) !important;
+    }
+  }
+.page-header {
+  width: fit-content;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80vw;
+//   max-width: 80vw;
+  margin: 0 auto;
+//   padding:0 128px;
+//   margin: 0 auto;
+  height: 100vh;
+  background: transparent;
+  justify-self: center;
+  align-self: center;
+  position: relative;
+  scroll-snap-align: start;
+  
+
+  .project-card {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    &.visible {
+      opacity: 1;
+
+      &.animate-from-left {
+        animation: slide-in-left 1s ease-in-out;
+      }
+
+      &.animate-from-right {
+        animation: slide-in-top 1s ease-in-out;
+      }
+    }
+  }
+
+  .project-card:first-child {
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    background-color: transparent;
+    span:nth-child(2) {
+      position: relative;
+      width: 142px;
+      height: 22px;
+      &::before {
+        position: absolute;
+        display: block;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 88px;
+        height: 4px;
+        background-color: var(--secondary);
+      }
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        bottom: 0;
+        right: 0;
+        width: 88px;
+        height: 4px;
+        background-color: var(--secondary);
+      }
+    }
+    p {
+      font-family: "VW Headline Book", sans-serif;
+      font-size: 28px;
+      width: 500px;
+    }
+
+    h3 {
+      font-size: 5rem;
+      line-height: 6rem;
+      font-weight: normal;
+      text-shadow: 0 10px 30px rgba(2, 11, 22, 0.5);
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    svg {
+        fill: white;
+         cursor: pointer;
+    }
+    a {
+      font-family: "VW Headline Book", sans-serif;
+      cursor: pointer;
+      width: 150px;
+      padding: 12px 0;
+      outline: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 600px;
+      background-color: var(--secondary);
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.7s linear;
+      border-radius: 10px;
+      &:hover {
+        transform: translateY(-5px);
+      }
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .project-card:nth-child(2) {
+    background-color: transparent;
+    position: relative;
+    right: 0;
+    width: 80%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: height 0.8s ease;
+    // transition: width 0.4s ease-in;
+    //  transition: height 0.5s ease-in, width 10s ease;
+    // background-image: url(../../assets/light2.png);
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    img {
+        // position: absolute;
+        // left: 0;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+}
+}

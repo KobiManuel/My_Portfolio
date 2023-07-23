@@ -1,0 +1,18 @@
+.main_page {
+  height: 100vh;
+
+  .pages {
+    overflow: scroll;
+    scroll-behavior: smooth !important;
+    scroll-snap-type: y mandatory;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, and Opera */
+    }
+  }
+}
