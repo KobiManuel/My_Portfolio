@@ -1,0 +1,89 @@
+@import url("https://fonts.cdnfonts.com/css/majel");
+@import url("https://fonts.cdnfonts.com/css/vw-headline-book");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Majel", sans-serif;
+  color: white;
+}
+
+:root {
+  --primary: #00231a;
+  --secondary: #ee5258;
+}
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-top {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes red-light-animation {
+  0% {
+    left: -20px; /* Start from the left of the card */
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    left: calc(100% - 10%); /* Move to the right edge of the card */
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes unroll-animation {
+  0% {
+    left: 0;
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate3d(-50%, 50%, 0) scale(0);
+    opacity: 0.33;
+  }
+  100% {
+    transform: translate3d(-50%, 50%, 0) scale(2000);
+    opacity: 0;
+  }
+}
+
+@keyframes materializeAnimation {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
