@@ -14,13 +14,13 @@
   overflow-x: hidden !important;
   overflow-y: hidden !important;
   scroll-snap-align: start;
-  
-.email-text {
-  cursor: pointer;
-  &:hover {
-    color: #ee5258;
+
+  .email-text {
+    cursor: pointer;
+    &:hover {
+      color: #ee5258;
+    }
   }
-}
   .project-card {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -87,8 +87,8 @@
       letter-spacing: 0.1em;
     }
     svg {
-        fill: white;
-         cursor: pointer;
+      fill: white;
+      cursor: pointer;
     }
     a {
       font-family: "VW Headline Book", sans-serif;
@@ -124,13 +124,14 @@
     align-items: center;
     overflow: hidden;
     cursor: pointer;
+    border-radius: 23px;
     // background-image: url(../../assets/light2.png);
     // background-size: cover;
     // background-repeat: no-repeat;
     // background-position: center;
     img {
-        position: absolute;
-        left: 0;
+      position: absolute;
+      left: 0;
       height: 400px;
       width: 0;
       height: 100%;
@@ -154,17 +155,16 @@
     left: 0; /* Adjusted to match the width of the red light */
     width: 80px;
     height: 100%;
-    background: linear-gradient(to right, #00231a , #ee5258);
+    background: linear-gradient(to right, #00231a, #ee5258);
     animation: red-light-animation 1s linear forwards;
   }
 }
-
 
 .ripple-1,
 .ripple-2,
 .ripple-3,
 .ripple-4,
-.ripple-5{
+.ripple-5 {
   height: 1px;
   width: 1px;
   position: absolute;
@@ -180,47 +180,47 @@
   will-change: transform, opacity;
 }
 
-.ripple-1{
+.ripple-1 {
   animation-delay: 0;
 }
 
-.ripple-2{
+.ripple-2 {
   animation-delay: 1s;
 }
 
-.ripple-3{
+.ripple-3 {
   animation-delay: 2s;
 }
 
-.ripple-4{
+.ripple-4 {
   animation-delay: 3s;
 }
 
-.ripple-4{
+.ripple-4 {
   animation-delay: 4s;
 }
 
-.ripple-5{
+.ripple-5 {
   animation-delay: 5s;
 }
 
 @media screen and (max-width: 635px) {
-    .card {
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 50px 0;
-      z-index: 700000;
-      width: 90vw;
-      max-width: 90vw;
-       .project-card:first-child {
+  .card {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 0;
+    z-index: 700000;
+    width: 90vw;
+    max-width: 90vw;
+    .project-card:first-child {
       position: static !important;
       height: 50%;
-    //   padding: 0 20px;
+      //   padding: 0 20px;
       gap: 16px;
     }
-     .project-card:nth-child(2) {
+    .project-card:nth-child(2) {
       height: 50% !important;
       width: 100%;
     }
-    }
+  }
 }
