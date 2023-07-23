@@ -1,21 +1,21 @@
 .dev-tools {
   overflow-y: scroll;
-   scroll-snap-type: y mandatory !important;
-   height: 100vh;
-   overflow-x: hidden;
-    scrollbar-width: none; /* Firefox */
+  scroll-snap-type: y mandatory !important;
+  height: 100vh;
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer and Edge
    */
-   &::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and Opera */
-}
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
 }
 
 .ripple-1,
 .ripple-2,
 .ripple-3,
 .ripple-4,
-.ripple-5{
+.ripple-5 {
   height: 1px;
   width: 1px;
   position: absolute;
@@ -31,47 +31,47 @@
   will-change: transform, opacity;
 }
 
-.ripple-1{
+.ripple-1 {
   animation-delay: 0;
 }
 
-.ripple-2{
+.ripple-2 {
   animation-delay: 1s;
 }
 
-.ripple-3{
+.ripple-3 {
   animation-delay: 2s;
 }
 
-.ripple-4{
+.ripple-4 {
   animation-delay: 3s;
 }
 
-.ripple-4{
+.ripple-4 {
   animation-delay: 4s;
 }
 
-.ripple-5{
+.ripple-5 {
   animation-delay: 5s;
 }
 
 @media screen and (max-width: 635px) {
-    .card {
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 50px 0;
-      z-index: 700000;
-      width: 90vw;
-      max-width: 90vw;
-       .project-card:first-child {
+  .card {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 0;
+    z-index: 700000;
+    width: 90vw;
+    max-width: 90vw;
+    .project-card:first-child {
       position: static !important;
       height: 50%;
-    //   padding: 0 20px;
+      //   padding: 0 20px;
       gap: 16px;
     }
-     .project-card:nth-child(2) {
+    .project-card:nth-child(2) {
       height: 50% !important;
       width: 100%;
     }
-    }
+  }
 }

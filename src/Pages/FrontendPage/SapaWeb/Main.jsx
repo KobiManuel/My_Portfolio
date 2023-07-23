@@ -3,9 +3,9 @@ import { PortfolioContext } from "../../../Context/context";
 import banner from "../../../Components/FrontendSection/images/banner2.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 
-const SapaAdmin = ({ id }) => {
+const SapaWeb = ({ id }) => {
   const { setSecondCard } = useContext(PortfolioContext);
-  const SapaAdminRef = useRef(null);
+  const SapaWebRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
@@ -26,7 +26,7 @@ const SapaAdmin = ({ id }) => {
       observerCallback,
       observerOptions
     );
-    const target = SapaAdminRef.current;
+    const target = SapaWebRef.current;
 
     if (target) {
       observer.observe(target);
@@ -42,21 +42,21 @@ const SapaAdmin = ({ id }) => {
   return (
     <section
       id={id}
-      className="SapaAdmin"
-      ref={SapaAdminRef}
+      className="SapaWeb"
+      ref={SapaWebRef}
       style={{ zIndex: "800000000" }}
     >
       <ProjectCard
-        title1="Sapa Admin"
-        title2="Dashboard"
+        title1="Sapa Web"
+        title2="App"
         description="Frontend Development"
         Image={banner}
         hoverColor="#012c3a"
-        link={"https://SapaAdmin.co/"}
+        link={"https://SapaWeb.co/"}
         homepage={false}
       />
     </section>
   );
 };
 
-export default SapaAdmin;
+export default SapaWeb;

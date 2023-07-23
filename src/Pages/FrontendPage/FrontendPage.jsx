@@ -2,9 +2,9 @@ import React, { useContext, useRef } from "react";
 import { PortfolioContext } from "../../Context/context";
 import Hero from "./Hero/Main";
 import AwaDigital from "./AwaDigital/Main";
-import './_FrontendPage.scss'
-import SapaAdmin from "./SapaAdmin/Main";
+import "./_FrontendPage.scss";
 import ReactMeals from "./ReactMeals/Main";
+import SapaWeb from "./SapaWeb/Main";
 
 const FrontendPage = () => {
   const {
@@ -25,7 +25,8 @@ const FrontendPage = () => {
     cardSetters.forEach((setter, i) => {
       setter(i === index);
     });
-    const pagesContainer = frontendPageRef.current.querySelector(".frontend-pages");
+    const pagesContainer =
+      frontendPageRef.current.querySelector(".frontend-pages");
     const component = pagesContainer.children[index];
     if (component) {
       component.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -66,7 +67,7 @@ const FrontendPage = () => {
       <div className="frontend-pages">
         <Hero />
         <AwaDigital />
-        <SapaAdmin />
+        <SapaWeb />
         <ReactMeals />
       </div>
     </section>

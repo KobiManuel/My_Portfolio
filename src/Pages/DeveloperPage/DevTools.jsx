@@ -21,7 +21,6 @@ const DeveloperPage = () => {
   const cardValues = [heroCard, firstCard, secondCard, thirdCard];
   const cardSetters = [setHeroCard, setFirstCard, setSecondCard, setThirdCard];
 
-
   const handleCardClick = (index) => {
     cardSetters.forEach((setter, i) => {
       setter(i === index);
