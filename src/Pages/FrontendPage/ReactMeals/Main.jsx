@@ -1,23 +1,24 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { PortfolioContext } from "../../../Context/portfolioSlice";
+import React, { useEffect, useRef } from "react";
 import banner from "../../../Components/FrontendSection/images/banner2.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
+import { useDispatch } from "react-redux";
+import { setThirdCard } from "../../../Context/portfolioSlice";
 
 const ReactMeals = ({ id }) => {
-  const { setThirdCard } = useContext(PortfolioContext);
+  const dispatch = useDispatch();
   const ReactMealsRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.8, // Set the threshold to 80%
+      threshold: 0.8,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setThirdCard(true);
+          dispatch(setThirdCard(entry.isIntersecting));
         } else {
-          setThirdCard(false);
+          dispatch(setThirdCard(false));
         }
       });
     };
@@ -37,7 +38,7 @@ const ReactMeals = ({ id }) => {
         observer.unobserve(target);
       }
     };
-  }, [setThirdCard]);
+  }, []);
 
   return (
     <section
