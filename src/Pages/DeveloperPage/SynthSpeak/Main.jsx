@@ -1,23 +1,24 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { PortfolioContext } from "../../../Context/context";
+import React, { useEffect, useRef } from "react";
 import codex from "../../../Components/DeveloperSection/images/A.I.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
+import { useDispatch } from "react-redux";
+import { setSecondCard } from "../../../Context/portfolioSlice";
 
 const SynthSpeak = ({ id }) => {
-  const { setSecondCard } = useContext(PortfolioContext);
+  const dispatch = useDispatch();
   const synthSpeakRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.8, // Set the threshold to 80%
+      threshold: 0.8,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setSecondCard(true);
+          dispatch(setSecondCard(entry.isIntersecting));
         } else {
-          setSecondCard(false);
+          dispatch(setSecondCard(false));
         }
       });
     };
@@ -37,7 +38,7 @@ const SynthSpeak = ({ id }) => {
         observer.unobserve(target);
       }
     };
-  }, [setSecondCard]);
+  }, []);
 
   return (
     <section
