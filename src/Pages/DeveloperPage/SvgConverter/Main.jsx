@@ -1,10 +1,12 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { PortfolioContext } from "../../../Context/context";
+import React, { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setThirdCard } from "../../../Context/portfolioSlice";
+
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 import banner from "./images/banner.png";
 
 const SvgConverter = ({ id }) => {
-  const { setThirdCard } = useContext(PortfolioContext);
+  const dispatch = useDispatch();
   const SvgConverterRef = useRef(null);
 
   useEffect(() => {
@@ -15,9 +17,9 @@ const SvgConverter = ({ id }) => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setThirdCard(true);
+          dispatch(setThirdCard(entry.isIntersecting));
         } else {
-          setThirdCard(false);
+          dispatch(setThirdCard(false));
         }
       });
     };
@@ -37,7 +39,7 @@ const SvgConverter = ({ id }) => {
         observer.unobserve(target);
       }
     };
-  }, [setThirdCard]);
+  }, []);
 
   return (
     <section
