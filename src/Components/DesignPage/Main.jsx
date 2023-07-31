@@ -7,7 +7,7 @@ import { setThirdCard } from "../../Context/portfolioSlice";
 const DesignPage = () => {
   const dispatch = useDispatch();
   const designSectionRef = useRef(null);
-  console.log("dESIGN SECTION !!!!");
+  // console.log("dESIGN SECTION !!!!");
 
   useEffect(() => {
     const observerOptions = {

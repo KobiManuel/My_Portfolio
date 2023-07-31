@@ -22,7 +22,7 @@ const ProjectCard = ({
   const [isHovered, setIsHovered] = useState(false);
   const [hovered, setHovered] = useState(false);
 
-  console.log("Project Card !!!");
+  // console.log("Project Card !!!");
   const buttonStyle = {
     backgroundColor: isHovered && hoverColor,
   };

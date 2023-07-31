@@ -8,7 +8,7 @@ const Hero = ({ id }) => {
   const dispatch = useDispatch();
   const DevtoolsRef = useRef(null);
 
-  console.log("hero");
+  // console.log("hero");
 
   useEffect(() => {
     const observerOptions = {

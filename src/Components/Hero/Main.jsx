@@ -9,7 +9,7 @@ const Hero = () => {
   const heroRef = useRef(null);
   const cardRef1 = useRef(null);
   const cardRef2 = useRef(null);
-  console.log("HERO SECTION !!!!");
+  // console.log("HERO SECTION !!!!");
 
   useEffect(() => {
     const heroNode = heroRef.current;
@@ -20,7 +20,7 @@ const Hero = () => {
       ([entry]) => {
         dispatch(setHeroCard(entry.isIntersecting));
       },
-      { threshold: 0.5 }
+      { threshold: 0.8 }
     );
 
     observer.observe(heroNode);

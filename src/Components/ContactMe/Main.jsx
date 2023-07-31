@@ -7,7 +7,7 @@ import { setFifthCard } from "../../Context/portfolioSlice";
 const ContactMe = () => {
   const ContactMeRef = useRef(null);
   const dispatch = useDispatch();
-  console.log("CONTACT ME !!!!");
+  // console.log("CONTACT ME !!!!");
 
   useEffect(() => {
     const observerOptions = {

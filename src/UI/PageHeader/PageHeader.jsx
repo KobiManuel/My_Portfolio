@@ -9,7 +9,7 @@ const PageHeader = ({ title1, title2, stack, banner }) => {
   const buttonStyle = {
     backgroundColor: isHovered && "",
   };
-  console.log("pageheader");
+  // console.log("pageheader");
 
   useEffect(() => {
     const btn = document.getElementById("devtoolsBtn");

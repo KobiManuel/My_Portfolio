@@ -7,7 +7,7 @@ import { setFourthCard } from "../../Context/portfolioSlice";
 const AboutMe = () => {
   const dispatch = useDispatch();
   const AboutMeRef = useRef(null);
-  console.log("ABOUT ME !!");
+  // console.log("ABOUT ME !!");
 
   useEffect(() => {
     const observerOptions = {

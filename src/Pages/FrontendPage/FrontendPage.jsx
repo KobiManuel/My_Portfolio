@@ -15,7 +15,7 @@ import {
 
 const FrontendPage = () => {
   const dispatch = useDispatch();
-  console.log("frontendpage running");
+  // console.log("frontendpage running");
 
   const heroCard = useSelector((state) => state.portfolio.heroCard);
   const firstCard = useSelector((state) => state.portfolio.firstCard);

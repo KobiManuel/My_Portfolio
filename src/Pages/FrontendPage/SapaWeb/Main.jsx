@@ -8,7 +8,7 @@ const SapaWeb = ({ id }) => {
   const dispatch = useDispatch();
   const SapaWebRef = useRef(null);
 
-  console.log("sapa-web");
+  // console.log("sapa-web");
 
   useEffect(() => {
     const observerOptions = {

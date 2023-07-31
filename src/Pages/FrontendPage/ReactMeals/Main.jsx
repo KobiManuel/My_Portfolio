@@ -8,7 +8,7 @@ const ReactMeals = ({ id }) => {
   const dispatch = useDispatch();
   const ReactMealsRef = useRef(null);
 
-  console.log("rect-meals");
+  // console.log("rect-meals");
 
   useEffect(() => {
     const observerOptions = {

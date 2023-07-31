@@ -12,7 +12,7 @@ import {
   setHeroCard,
 } from "../../Context/portfolioSlice";
 
-console.log("devtools running");
+// console.log("devtools running");
 
 const DeveloperPage = () => {
   const dispatch = useDispatch();

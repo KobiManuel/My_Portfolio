@@ -8,7 +8,7 @@ const LunaCodex = ({ id }) => {
   const dispatch = useDispatch();
   const lunaCodexRef = useRef(null);
 
-  console.log("lunacodex");
+  // console.log("lunacodex");
 
   useEffect(() => {
     const observerOptions = {

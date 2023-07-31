@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import Hero from "../../Components/Hero/Main";
 import DeveloperSection from "../../Components/DeveloperSection/Main";
 import FrontendSection from "../../Components/FrontendSection/Main";
@@ -18,7 +18,7 @@ import {
 import { useLocation } from "react-router";
 
 const MainPage = () => {
-  console.log("mainpage running");
+  // console.log("mainpage running");
   const dispatch = useDispatch();
   const location = useLocation();
   const pathname = location.pathname;
@@ -30,29 +30,30 @@ const MainPage = () => {
   const fourthCard = useSelector((state) => state.portfolio.fourthCard);
   const fifthCard = useSelector((state) => state.portfolio.fifthCard);
 
-  const handleCardClick = (index) => {
-    dispatch(setHeroCard(index === 0));
-    dispatch(setFirstCard(index === 1));
-    dispatch(setSecondCard(index === 2));
-    dispatch(setThirdCard(index === 3));
-    dispatch(setFourthCard(index === 4));
-    dispatch(setFifthCard(index === 5));
+  const handleCardClick = useMemo(
+    () => (index) => {
+      dispatch(setHeroCard(index === 0));
+      dispatch(setFirstCard(index === 1));
+      dispatch(setSecondCard(index === 2));
+      dispatch(setThirdCard(index === 3));
+      dispatch(setFourthCard(index === 4));
+      dispatch(setFifthCard(index === 5));
 
-    const pagesContainer = containerRef.current.querySelector(".pages");
-    const component = pagesContainer.children[index];
-    if (component) {
-      component.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+      const pagesContainer = containerRef.current.querySelector(".pages");
+      const component = pagesContainer.children[index];
+      if (component) {
+        component.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    },
+    [dispatch]
+  );
 
   const containerRef = useRef(null);
 
   useEffect(() => {
-    if (pathname === "/") {
-      const fixedDiv = document.querySelector(".fixed");
-      fixedDiv.style.transform = "translateX(0)";
-    }
-  }, [pathname]);
+    const fixedDiv = document.querySelector(".fixed");
+    fixedDiv.style.transform = "translateX(0)";
+  }, []);
 
   return (
     <div className="main_page" ref={containerRef}>

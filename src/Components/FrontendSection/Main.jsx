@@ -7,7 +7,7 @@ import { setSecondCard } from "../../Context/portfolioSlice";
 const FrontendSection = () => {
   const dispatch = useDispatch();
   const frontendSectionRef = useRef(null);
-  console.log("FRONTEND SECTION !!!!");
+  // console.log("FRONTEND SECTION !!!!");
 
   useEffect(() => {
     const observerOptions = {

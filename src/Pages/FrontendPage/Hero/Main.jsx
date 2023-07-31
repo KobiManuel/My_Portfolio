@@ -8,7 +8,7 @@ const Hero = ({ id }) => {
   const dispatch = useDispatch();
   const DevtoolsRef = useRef(null);
 
-  console.log("hero/frontend");
+  // console.log("hero/frontend");
   useEffect(() => {
     const observerOptions = {
       threshold: 0.8,
