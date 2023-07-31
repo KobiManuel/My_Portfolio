@@ -1,23 +1,24 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { PortfolioContext } from "../../../Context/context";
-import banner from './images/AI post blog.jpg';
+import React, { useEffect, useRef } from "react";
+import banner from "./images/AI post blog.jpg";
 import PageHeader from "../../../UI/PageHeader/PageHeader";
+import { useDispatch } from "react-redux";
+import { setHeroCard } from "../../../Context/portfolioSlice";
 
 const Hero = ({ id }) => {
-  const { setHeroCard } = useContext(PortfolioContext);
+  const dispatch = useDispatch();
   const DevtoolsRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.8, // Set the threshold to 80%
+      threshold: 0.8,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setHeroCard(true);
+          dispatch(setHeroCard(entry.isIntersecting));
         } else {
-          setHeroCard(false);
+          dispatch(setHeroCard(false));
         }
       });
     };
@@ -37,7 +38,7 @@ const Hero = ({ id }) => {
         observer.unobserve(target);
       }
     };
-  }, [setHeroCard]);
+  }, []);
 
   return (
     <section
