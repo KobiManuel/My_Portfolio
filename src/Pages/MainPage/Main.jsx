@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Hero from "../../Components/Hero/Main";
 import DeveloperSection from "../../Components/DeveloperSection/Main";
 import FrontendSection from "../../Components/FrontendSection/Main";
@@ -6,68 +6,64 @@ import DesignPage from "../../Components/DesignPage/Main";
 import "./_Main.scss";
 import AboutMe from "../../Components/AboutMe/Main";
 import ContactMe from "../../Components/ContactMe/Main";
-import { PortfolioContext } from "../../Context/portfolioSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setFirstCard,
+  setSecondCard,
+  setThirdCard,
+  setFourthCard,
+  setHeroCard,
+  setFifthCard,
+} from "../../Context/portfolioSlice";
 import { useLocation } from "react-router";
 
 const MainPage = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const pathname = location.pathname;
-  const {
-    heroCard,
-    firstCard,
-    secondCard,
-    thirdCard,
-    fourthCard,
-    fifthCard,
-    setFirstCard,
-    setSecondCard,
-    setThirdCard,
-    setFourthCard,
-    setHeroCard,
-    setFifthCard,
-  } = useContext(PortfolioContext);
-  const cardValues = [
-    heroCard,
-    firstCard,
-    secondCard,
-    thirdCard,
-    fourthCard,
-    fifthCard,
-  ];
-  const cardSetters = [
-    setHeroCard,
-    setFirstCard,
-    setSecondCard,
-    setThirdCard,
-    setFourthCard,
-    setFifthCard,
-  ];
 
-  console.log("MAIN PAGE !!!!");
-
-  useEffect(() => {
-    if (pathname === "/") {
-      const fixedDiv = document.querySelector(".fixed");
-      fixedDiv.style.transform = "translateX(0)";
-      console.log("pathname");
-    }
-  }, [pathname]);
+  const heroCard = useSelector((state) => state.portfolio.heroCard);
+  const firstCard = useSelector((state) => state.portfolio.firstCard);
+  const secondCard = useSelector((state) => state.portfolio.secondCard);
+  const thirdCard = useSelector((state) => state.portfolio.thirdCard);
+  const fourthCard = useSelector((state) => state.portfolio.fourthCard);
+  const fifthCard = useSelector((state) => state.portfolio.fifthCard);
 
   const handleCardClick = (index) => {
-    cardSetters.forEach((setter, i) => {
-      setter(i === index);
-    });
+    dispatch(setHeroCard(index === 0));
+    dispatch(setFirstCard(index === 1));
+    dispatch(setSecondCard(index === 2));
+    dispatch(setThirdCard(index === 3));
+    dispatch(setFourthCard(index === 4));
+    dispatch(setFifthCard(index === 5));
+
     const pagesContainer = containerRef.current.querySelector(".pages");
     const component = pagesContainer.children[index];
     if (component) {
       component.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (pathname === "/") {
+      const fixedDiv = document.querySelector(".fixed");
+      fixedDiv.style.transform = "translateX(0)";
+    }
+  }, [pathname]);
+
   return (
     <div className="main_page" ref={containerRef}>
       <div className="fixed">
-        {cardValues.map((card, index) => (
+        {[
+          heroCard,
+          firstCard,
+          secondCard,
+          thirdCard,
+          fourthCard,
+          fifthCard,
+        ].map((card, index) => (
           <button
             key={index}
             onClick={() => handleCardClick(index)}
