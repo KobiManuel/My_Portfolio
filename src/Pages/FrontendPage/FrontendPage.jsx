@@ -1,30 +1,34 @@
-import React, { useContext, useRef } from "react";
-import { PortfolioContext } from "../../Context/portfolioSlice";
+import React, { useRef } from "react";
 import Hero from "./Hero/Main";
 import AwaDigital from "./AwaDigital/Main";
 import "./_FrontendPage.scss";
 import ReactMeals from "./ReactMeals/Main";
 import SapaWeb from "./SapaWeb/Main";
 
-const FrontendPage = () => {
-  const {
-    heroCard,
-    firstCard,
-    secondCard,
-    thirdCard,
-    setFirstCard,
-    setSecondCard,
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setFirstCard,
+  setSecondCard,
+  setThirdCard,
+  setHeroCard,
+} from "../../Context/portfolioSlice";
 
-    setThirdCard,
-    setHeroCard,
-  } = useContext(PortfolioContext);
+const FrontendPage = () => {
+  const dispatch = useDispatch();
+
+  const heroCard = useSelector((state) => state.portfolio.heroCard);
+  const firstCard = useSelector((state) => state.portfolio.firstCard);
+  const secondCard = useSelector((state) => state.portfolio.secondCard);
+  const thirdCard = useSelector((state) => state.portfolio.thirdCard);
+
   const cardValues = [heroCard, firstCard, secondCard, thirdCard];
-  const cardSetters = [setHeroCard, setFirstCard, setSecondCard, setThirdCard];
 
   const handleCardClick = (index) => {
-    cardSetters.forEach((setter, i) => {
-      setter(i === index);
-    });
+    dispatch(setHeroCard(index === 0));
+    dispatch(setFirstCard(index === 1));
+    dispatch(setSecondCard(index === 2));
+    dispatch(setThirdCard(index === 3));
+
     const pagesContainer =
       frontendPageRef.current.querySelector(".frontend-pages");
     const component = pagesContainer.children[index];
@@ -32,6 +36,7 @@ const FrontendPage = () => {
       component.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+
   const frontendPageRef = useRef(null);
 
   return (
@@ -63,7 +68,6 @@ const FrontendPage = () => {
           <p>→</p>
         </div>
       </div>
-
       <div className="frontend-pages">
         <Hero />
         <AwaDigital />
