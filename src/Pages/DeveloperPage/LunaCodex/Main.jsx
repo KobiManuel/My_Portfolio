@@ -8,6 +8,8 @@ const LunaCodex = ({ id }) => {
   const dispatch = useDispatch();
   const lunaCodexRef = useRef(null);
 
+  console.log("lunacodex");
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.8,
@@ -60,4 +62,4 @@ const LunaCodex = ({ id }) => {
   );
 };
 
-export default LunaCodex;
+export default React.memo(LunaCodex);

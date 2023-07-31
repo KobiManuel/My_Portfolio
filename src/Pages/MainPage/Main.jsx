@@ -18,6 +18,7 @@ import {
 import { useLocation } from "react-router";
 
 const MainPage = () => {
+  console.log("mainpage running");
   const dispatch = useDispatch();
   const location = useLocation();
   const pathname = location.pathname;
@@ -101,4 +102,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default React.memo(MainPage);

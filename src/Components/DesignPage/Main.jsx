@@ -54,4 +54,4 @@ const DesignPage = () => {
   );
 };
 
-export default DesignPage;
+export default React.memo(DesignPage);

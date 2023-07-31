@@ -5,6 +5,8 @@ import { setThirdCard } from "../../../Context/portfolioSlice";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 import banner from "./images/banner.png";
 
+console.log("svgconverter");
+
 const SvgConverter = ({ id }) => {
   const dispatch = useDispatch();
   const SvgConverterRef = useRef(null);
@@ -61,4 +63,4 @@ const SvgConverter = ({ id }) => {
   );
 };
 
-export default SvgConverter;
+export default React.memo(SvgConverter);

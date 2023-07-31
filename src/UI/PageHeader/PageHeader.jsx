@@ -9,6 +9,7 @@ const PageHeader = ({ title1, title2, stack, banner }) => {
   const buttonStyle = {
     backgroundColor: isHovered && "",
   };
+  console.log("pageheader");
 
   useEffect(() => {
     const btn = document.getElementById("devtoolsBtn");
@@ -100,4 +101,4 @@ const PageHeader = ({ title1, title2, stack, banner }) => {
   );
 };
 
-export default PageHeader;
+export default React.memo(PageHeader);

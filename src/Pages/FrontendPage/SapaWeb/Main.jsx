@@ -8,6 +8,8 @@ const SapaWeb = ({ id }) => {
   const dispatch = useDispatch();
   const SapaWebRef = useRef(null);
 
+  console.log("sapa-web");
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.8,
@@ -60,4 +62,4 @@ const SapaWeb = ({ id }) => {
   );
 };
 
-export default SapaWeb;
+export default React.memo(SapaWeb);

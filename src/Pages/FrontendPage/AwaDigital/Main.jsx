@@ -8,6 +8,7 @@ const AwaDigital = ({ id }) => {
   const dispatch = useDispatch();
   const AwaDigitalRef = useRef(null);
 
+  console.log("awa-digital");
   useEffect(() => {
     const observerOptions = {
       threshold: 0.8,
@@ -60,4 +61,4 @@ const AwaDigital = ({ id }) => {
   );
 };
 
-export default AwaDigital;
+export default React.memo(AwaDigital);

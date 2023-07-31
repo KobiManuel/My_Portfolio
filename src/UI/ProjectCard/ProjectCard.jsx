@@ -57,7 +57,7 @@ const ProjectCard = ({
       observer.unobserve(cardNode1);
       observer.unobserve(cardNode2);
     };
-  }, [isVisible]);
+  }, []);
 
   return (
     <div className="card" ref={heroRef}>
@@ -169,4 +169,4 @@ ProjectCard.defaultProps = {
   homepage: true,
 };
 
-export default ProjectCard;
+export default React.memo(ProjectCard);

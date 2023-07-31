@@ -12,6 +12,8 @@ import {
   setHeroCard,
 } from "../../Context/portfolioSlice";
 
+console.log("devtools running");
+
 const DeveloperPage = () => {
   const dispatch = useDispatch();
 
@@ -77,4 +79,4 @@ const DeveloperPage = () => {
   );
 };
 
-export default DeveloperPage;
+export default React.memo(DeveloperPage);

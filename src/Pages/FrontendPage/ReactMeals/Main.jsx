@@ -8,6 +8,8 @@ const ReactMeals = ({ id }) => {
   const dispatch = useDispatch();
   const ReactMealsRef = useRef(null);
 
+  console.log("rect-meals");
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.8,
@@ -60,4 +62,4 @@ const ReactMeals = ({ id }) => {
   );
 };
 
-export default ReactMeals;
+export default React.memo(ReactMeals);

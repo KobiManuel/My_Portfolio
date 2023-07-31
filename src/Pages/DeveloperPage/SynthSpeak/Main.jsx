@@ -7,6 +7,7 @@ import { setSecondCard } from "../../../Context/portfolioSlice";
 const SynthSpeak = ({ id }) => {
   const dispatch = useDispatch();
   const synthSpeakRef = useRef(null);
+  console.log("synthspeak");
 
   useEffect(() => {
     const observerOptions = {
@@ -60,4 +61,4 @@ const SynthSpeak = ({ id }) => {
   );
 };
 
-export default SynthSpeak;
+export default React.memo(SynthSpeak);

@@ -93,4 +93,4 @@ const DeveloperSection = ({ id }) => {
   );
 };
 
-export default DeveloperSection;
+export default React.memo(DeveloperSection);

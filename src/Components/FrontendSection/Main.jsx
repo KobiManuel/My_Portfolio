@@ -54,4 +54,4 @@ const FrontendSection = () => {
   );
 };
 
-export default FrontendSection;
+export default React.memo(FrontendSection);

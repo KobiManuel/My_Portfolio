@@ -8,6 +8,8 @@ const Hero = ({ id }) => {
   const dispatch = useDispatch();
   const DevtoolsRef = useRef(null);
 
+  console.log("hero");
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.8,
@@ -57,4 +59,4 @@ const Hero = ({ id }) => {
   );
 };
 
-export default Hero;
+export default React.memo(Hero);
