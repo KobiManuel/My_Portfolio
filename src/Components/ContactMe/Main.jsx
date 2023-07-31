@@ -7,6 +7,8 @@ const ContactMe = () => {
   const { setFifthCard } = useContext(PortfolioContext);
   const ContactMeRef = useRef(null);
 
+  console.log("CONTACT ME !!!!");
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.8, // Set the threshold to 80%

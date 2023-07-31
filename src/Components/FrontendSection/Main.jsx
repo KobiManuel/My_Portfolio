@@ -7,6 +7,8 @@ const FrontendSection = () => {
   const { setSecondCard } = useContext(PortfolioContext);
   const frontendSectionRef = useRef(null);
 
+  console.log("FRONTEND SECTION !!!!");
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.8, // Set the threshold to 80%

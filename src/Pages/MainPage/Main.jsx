@@ -1,67 +1,69 @@
-import React, { useContext, useEffect, useRef } from 'react'
-import Hero from '../../Components/Hero/Main'
-import DeveloperSection from '../../Components/DeveloperSection/Main'
-import FrontendSection from '../../Components/FrontendSection/Main'
+import React, { useContext, useEffect, useRef } from "react";
+import Hero from "../../Components/Hero/Main";
+import DeveloperSection from "../../Components/DeveloperSection/Main";
+import FrontendSection from "../../Components/FrontendSection/Main";
 import DesignPage from "../../Components/DesignPage/Main";
-import './_Main.scss';
-import AboutMe from '../../Components/AboutMe/Main'
-import ContactMe from '../../Components/ContactMe/Main'
-import { PortfolioContext } from '../../Context/context';
-import { useLocation } from 'react-router';
+import "./_Main.scss";
+import AboutMe from "../../Components/AboutMe/Main";
+import ContactMe from "../../Components/ContactMe/Main";
+import { PortfolioContext } from "../../Context/context";
+import { useLocation } from "react-router";
 
 const MainPage = () => {
   const location = useLocation();
   const pathname = location.pathname;
-    const {
-      heroCard,
-      firstCard,
-      secondCard,
-      thirdCard,
-      fourthCard,
-      fifthCard,
-      setFirstCard,
-      setSecondCard,
-      setThirdCard,
-      setFourthCard,
-      setHeroCard,
-      setFifthCard,
-    } = useContext(PortfolioContext);
-    const cardValues = [
-      heroCard,
-      firstCard,
-      secondCard,
-      thirdCard,
-      fourthCard,
-      fifthCard,
-    ];
-    const cardSetters = [
-      setHeroCard,
-      setFirstCard,
-      setSecondCard,
-      setThirdCard,
-      setFourthCard,
-      setFifthCard,
-    ];
+  const {
+    heroCard,
+    firstCard,
+    secondCard,
+    thirdCard,
+    fourthCard,
+    fifthCard,
+    setFirstCard,
+    setSecondCard,
+    setThirdCard,
+    setFourthCard,
+    setHeroCard,
+    setFifthCard,
+  } = useContext(PortfolioContext);
+  const cardValues = [
+    heroCard,
+    firstCard,
+    secondCard,
+    thirdCard,
+    fourthCard,
+    fifthCard,
+  ];
+  const cardSetters = [
+    setHeroCard,
+    setFirstCard,
+    setSecondCard,
+    setThirdCard,
+    setFourthCard,
+    setFifthCard,
+  ];
 
-    useEffect(() => {
-      if (pathname === "/") {
-          const fixedDiv = document.querySelector(".fixed");
-          fixedDiv.style.transform = "translateX(0)";
-      }
-    }, [pathname])
-    
+  console.log("MAIN PAGE !!!!");
 
-    const handleCardClick = (index) => {
-      cardSetters.forEach((setter, i) => {
-        setter(i === index);
-      });
-      const pagesContainer = containerRef.current.querySelector(".pages");
-      const component = pagesContainer.children[index];
-      if (component) {
-        component.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
-    const containerRef = useRef(null);
+  useEffect(() => {
+    if (pathname === "/") {
+      const fixedDiv = document.querySelector(".fixed");
+      fixedDiv.style.transform = "translateX(0)";
+      console.log("pathname");
+    }
+  }, [pathname]);
+
+  const handleCardClick = (index) => {
+    cardSetters.forEach((setter, i) => {
+      setter(i === index);
+    });
+    const pagesContainer = containerRef.current.querySelector(".pages");
+    const component = pagesContainer.children[index];
+    if (component) {
+      component.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+  const containerRef = useRef(null);
   return (
     <div className="main_page" ref={containerRef}>
       <div className="fixed">
@@ -101,6 +103,6 @@ const MainPage = () => {
       </div>
     </div>
   );
-}
+};
 
-export default MainPage
+export default MainPage;

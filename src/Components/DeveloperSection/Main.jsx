@@ -3,14 +3,16 @@ import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import developer from "./images/AI post blog.jpg";
 import { PortfolioContext } from "../../Context/context";
 
-const DeveloperSection = ({id}) => {
+const DeveloperSection = ({ id }) => {
   const { setFirstCard } = useContext(PortfolioContext);
   const [height, setHeight] = useState("");
   const [width, setWidth] = useState("");
   const [position, setPosition] = useState("");
   const developerSectionRef = useRef(null);
+  console.log("dEVELOPER SECTION !!!!");
 
   useEffect(() => {
+    console.log("running observer");
     const observerOptions = {
       threshold: 0.8, // Set the threshold to 80%
     };
@@ -44,9 +46,9 @@ const DeveloperSection = ({id}) => {
 
   const handlePageChange = () => {
     setHeight("100%");
-  setPosition("absolute");
-  setWidth("70%")
-  }
+    setPosition("absolute");
+    setWidth("70%");
+  };
 
   return (
     <section

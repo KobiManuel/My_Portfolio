@@ -7,6 +7,7 @@ const Hero = () => {
   const heroRef = useRef(null);
   const cardRef1 = useRef(null);
   const cardRef2 = useRef(null);
+  console.log("HERO SECTION !!!!");
 
   useEffect(() => {
     const heroNode = heroRef.current;

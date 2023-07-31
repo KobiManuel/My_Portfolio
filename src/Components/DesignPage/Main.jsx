@@ -6,6 +6,7 @@ import { PortfolioContext } from "../../Context/context";
 const DesignPage = () => {
   const { setThirdCard } = useContext(PortfolioContext);
   const designSectionRef = useRef(null);
+  console.log("dESIGN SECTION !!!!");
 
   useEffect(() => {
     const observerOptions = {

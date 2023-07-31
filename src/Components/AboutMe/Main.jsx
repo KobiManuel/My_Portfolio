@@ -7,6 +7,8 @@ const AboutMe = () => {
   const { setFourthCard } = useContext(PortfolioContext);
   const AboutMeRef = useRef(null);
 
+  console.log("ABOUT ME !!");
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.8, // Set the threshold to 80%
