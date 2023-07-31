@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import banner from "./images/banner3.jpg";
-import { PortfolioContext } from "../../Context/portfolioSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setSecondCard } from "../../Context/portfolioSlice";
 
 const FrontendSection = () => {
-  const { setSecondCard } = useContext(PortfolioContext);
+  const dispatch = useDispatch();
   const frontendSectionRef = useRef(null);
-
   console.log("FRONTEND SECTION !!!!");
 
   useEffect(() => {
@@ -17,9 +17,9 @@ const FrontendSection = () => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setSecondCard(true);
+          dispatch(setSecondCard(entry.isIntersecting));
         } else {
-          setSecondCard(false);
+          dispatch(setSecondCard(false));
         }
       });
     };
@@ -39,7 +39,7 @@ const FrontendSection = () => {
         observer.unobserve(target);
       }
     };
-  }, [setSecondCard]);
+  }, []);
   return (
     <section className="frontend-section" ref={frontendSectionRef}>
       <ProjectCard

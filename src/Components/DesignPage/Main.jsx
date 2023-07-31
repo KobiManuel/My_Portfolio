@@ -1,24 +1,25 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import banner from "./images/banner.jpg";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
-import { PortfolioContext } from "../../Context/portfolioSlice";
+import { useDispatch } from "react-redux";
+import { setThirdCard } from "../../Context/portfolioSlice";
 
 const DesignPage = () => {
-  const { setThirdCard } = useContext(PortfolioContext);
+  const dispatch = useDispatch();
   const designSectionRef = useRef(null);
   console.log("dESIGN SECTION !!!!");
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.8, // Set the threshold to 80%
+      threshold: 0.8,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setThirdCard(true);
+          dispatch(setThirdCard(entry.isIntersecting));
         } else {
-          setThirdCard(false);
+          dispatch(setThirdCard(false));
         }
       });
     };
@@ -38,7 +39,7 @@ const DesignPage = () => {
         observer.unobserve(target);
       }
     };
-  }, [setThirdCard]);
+  }, []);
   return (
     <section className="design-section" ref={designSectionRef}>
       <ProjectCard

@@ -1,25 +1,25 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import developer from "./images/banner.jpg";
-import { PortfolioContext } from "../../Context/portfolioSlice";
+import { useDispatch } from "react-redux";
+import { setFourthCard } from "../../Context/portfolioSlice";
 
 const AboutMe = () => {
-  const { setFourthCard } = useContext(PortfolioContext);
+  const dispatch = useDispatch();
   const AboutMeRef = useRef(null);
-
   console.log("ABOUT ME !!");
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.8, // Set the threshold to 80%
+      threshold: 0.8,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setFourthCard(true);
+          dispatch(setFourthCard(entry.isIntersecting));
         } else {
-          setFourthCard(false);
+          dispatch(setFourthCard(false));
         }
       });
     };
@@ -39,7 +39,7 @@ const AboutMe = () => {
         observer.unobserve(target);
       }
     };
-  }, [setFourthCard]);
+  }, []);
 
   return (
     <section className="developer-section" ref={AboutMeRef}>

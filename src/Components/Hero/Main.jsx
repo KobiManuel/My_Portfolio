@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "./_Main.scss";
-import { PortfolioContext } from "../../Context/portfolioSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setHeroCard } from "../../Context/portfolioSlice";
 
 const Hero = () => {
-  const { heroCard, setHeroCard } = useContext(PortfolioContext);
+  const heroCard = useSelector((state) => state.portfolio.heroCard);
+  const dispatch = useDispatch();
   const heroRef = useRef(null);
   const cardRef1 = useRef(null);
   const cardRef2 = useRef(null);
@@ -16,7 +18,7 @@ const Hero = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setHeroCard(entry.isIntersecting);
+        dispatch(setHeroCard(entry.isIntersecting));
       },
       { threshold: 0.5 }
     );
@@ -30,7 +32,7 @@ const Hero = () => {
       observer.unobserve(cardNode1);
       observer.unobserve(cardNode2);
     };
-  });
+  }, []);
 
   return (
     <section className="hero" ref={heroRef}>

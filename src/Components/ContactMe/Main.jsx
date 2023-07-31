@@ -1,25 +1,25 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import developer from "./images/banner.jpg";
-import { PortfolioContext } from "../../Context/portfolioSlice";
+import { useDispatch } from "react-redux";
+import { setFifthCard } from "../../Context/portfolioSlice";
 
 const ContactMe = () => {
-  const { setFifthCard } = useContext(PortfolioContext);
   const ContactMeRef = useRef(null);
-
+  const dispatch = useDispatch();
   console.log("CONTACT ME !!!!");
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.8, // Set the threshold to 80%
+      threshold: 0.8,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setFifthCard(true);
+          dispatch(setFifthCard(entry.isIntersecting));
         } else {
-          setFifthCard(false);
+          dispatch(setFifthCard(false));
         }
       });
     };

@@ -1,28 +1,43 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useReducer } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import developer from "./images/AI post blog.jpg";
-import { PortfolioContext } from "../../Context/portfolioSlice";
+import { useDispatch } from "react-redux";
+import { setFirstCard } from "../../Context/portfolioSlice";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "SET_CARD_PROPERTIES":
+      return {
+        ...state,
+        ...action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 const DeveloperSection = ({ id }) => {
-  const { setFirstCard } = useContext(PortfolioContext);
-  const [height, setHeight] = useState("");
-  const [width, setWidth] = useState("");
-  const [position, setPosition] = useState("");
+  const dispatch = useDispatch();
+  const [state, dispatchState] = useReducer(reducer, {
+    height: "",
+    width: "",
+    position: "",
+  });
   const developerSectionRef = useRef(null);
   console.log("dEVELOPER SECTION !!!!");
 
   useEffect(() => {
     console.log("running observer");
     const observerOptions = {
-      threshold: 0.8, // Set the threshold to 80%
+      threshold: 0.8,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setFirstCard(true);
+          dispatch(setFirstCard(entry.isIntersecting));
         } else {
-          setFirstCard(false);
+          dispatch(setFirstCard(entry.isIntersecting));
         }
       });
     };
@@ -42,12 +57,17 @@ const DeveloperSection = ({ id }) => {
         observer.unobserve(target);
       }
     };
-  }, [setFirstCard]);
+  }, []);
 
   const handlePageChange = () => {
-    setHeight("100%");
-    setPosition("absolute");
-    setWidth("70%");
+    dispatchState({
+      type: "SET_CARD_PROPERTIES",
+      payload: {
+        height: "100%",
+        position: "absolute",
+        width: "70%",
+      },
+    });
   };
 
   return (
@@ -64,9 +84,9 @@ const DeveloperSection = ({ id }) => {
         Image={developer}
         hoverColor="#012c3a"
         onClick={handlePageChange}
-        height={height}
-        width={width}
-        position={position}
+        height={state.height}
+        width={state.width}
+        position={state.position}
         link={"/projects/developer"}
       />
     </section>
