@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { PortfolioContext } from "../../Context/context";
+import { PortfolioContext } from "../../Context/portfolioSlice";
 import Hero from "./Hero/Main";
 import AwaDigital from "./AwaDigital/Main";
 import "./_FrontendPage.scss";

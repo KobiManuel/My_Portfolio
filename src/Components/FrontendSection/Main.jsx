@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import banner from "./images/banner3.jpg";
-import { PortfolioContext } from "../../Context/context";
+import { PortfolioContext } from "../../Context/portfolioSlice";
 
 const FrontendSection = () => {
   const { setSecondCard } = useContext(PortfolioContext);

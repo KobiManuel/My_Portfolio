@@ -6,7 +6,7 @@ import DesignPage from "../../Components/DesignPage/Main";
 import "./_Main.scss";
 import AboutMe from "../../Components/AboutMe/Main";
 import ContactMe from "../../Components/ContactMe/Main";
-import { PortfolioContext } from "../../Context/context";
+import { PortfolioContext } from "../../Context/portfolioSlice";
 import { useLocation } from "react-router";
 
 const MainPage = () => {

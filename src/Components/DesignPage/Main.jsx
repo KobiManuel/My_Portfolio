@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import banner from "./images/banner.jpg";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
-import { PortfolioContext } from "../../Context/context";
+import { PortfolioContext } from "../../Context/portfolioSlice";
 
 const DesignPage = () => {
   const { setThirdCard } = useContext(PortfolioContext);

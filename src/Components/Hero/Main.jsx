@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import "./_Main.scss";
-import { PortfolioContext } from "../../Context/context";
+import { PortfolioContext } from "../../Context/portfolioSlice";
 
 const Hero = () => {
   const { heroCard, setHeroCard } = useContext(PortfolioContext);

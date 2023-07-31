@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { PortfolioContext } from "../../../Context/context";
+import { PortfolioContext } from "../../../Context/portfolioSlice";
 import banner from "../../../Components/FrontendSection/images/banner2.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 

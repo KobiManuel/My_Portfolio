@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import developer from "./images/AI post blog.jpg";
-import { PortfolioContext } from "../../Context/context";
+import { PortfolioContext } from "../../Context/portfolioSlice";
 
 const DeveloperSection = ({ id }) => {
   const { setFirstCard } = useContext(PortfolioContext);
