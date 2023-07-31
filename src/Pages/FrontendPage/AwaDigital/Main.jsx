@@ -1,23 +1,24 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { PortfolioContext } from "../../../Context/portfolioSlice";
+import React, { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setFirstCard } from "../../../Context/portfolioSlice";
 import banner from "../../../Components/FrontendSection/images/banner2.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 
 const AwaDigital = ({ id }) => {
-  const { setFirstCard } = useContext(PortfolioContext);
+  const dispatch = useDispatch();
   const AwaDigitalRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.8, // Set the threshold to 80%
+      threshold: 0.8,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setFirstCard(true);
+          dispatch(setFirstCard(entry.isIntersecting));
         } else {
-          setFirstCard(false);
+          dispatch(setFirstCard(false));
         }
       });
     };
@@ -37,7 +38,7 @@ const AwaDigital = ({ id }) => {
         observer.unobserve(target);
       }
     };
-  }, [setFirstCard]);
+  }, []);
 
   return (
     <section
