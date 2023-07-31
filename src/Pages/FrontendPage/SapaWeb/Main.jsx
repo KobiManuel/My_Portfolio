@@ -1,23 +1,24 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { PortfolioContext } from "../../../Context/portfolioSlice";
+import React, { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setSecondCard } from "../../../Context/portfolioSlice";
 import banner from "../../../Components/FrontendSection/images/banner2.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 
 const SapaWeb = ({ id }) => {
-  const { setSecondCard } = useContext(PortfolioContext);
+  const dispatch = useDispatch();
   const SapaWebRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.8, // Set the threshold to 80%
+      threshold: 0.8,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setSecondCard(true);
+          dispatch(setSecondCard(entry.isIntersecting));
         } else {
-          setSecondCard(false);
+          dispatch(setSecondCard(false));
         }
       });
     };
@@ -37,7 +38,7 @@ const SapaWeb = ({ id }) => {
         observer.unobserve(target);
       }
     };
-  }, [setSecondCard]);
+  }, []);
 
   return (
     <section
@@ -52,7 +53,7 @@ const SapaWeb = ({ id }) => {
         description="Frontend Development"
         Image={banner}
         hoverColor="#012c3a"
-        link={"https://SapaWeb.co/"}
+        link={"https://trysapa.com/"}
         homepage={false}
       />
     </section>
