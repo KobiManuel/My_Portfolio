@@ -1,23 +1,24 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { PortfolioContext } from "../../../Context/context";
+import React, { useEffect, useRef } from "react";
 import codex from "../../../Components/DeveloperSection/images/A.I.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
+import { useDispatch } from "react-redux";
+import { setFirstCard } from "../../../Context/portfolioSlice";
 
 const LunaCodex = ({ id }) => {
-  const { setFirstCard } = useContext(PortfolioContext);
+  const dispatch = useDispatch();
   const lunaCodexRef = useRef(null);
 
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.8, // Set the threshold to 80%
+      threshold: 0.8,
     };
 
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setFirstCard(true);
+          dispatch(setFirstCard(entry.isIntersecting));
         } else {
-          setFirstCard(false);
+          dispatch(setFirstCard(false));
         }
       });
     };
@@ -37,7 +38,7 @@ const LunaCodex = ({ id }) => {
         observer.unobserve(target);
       }
     };
-  }, [setFirstCard]);
+  }, []);
 
   return (
     <section
