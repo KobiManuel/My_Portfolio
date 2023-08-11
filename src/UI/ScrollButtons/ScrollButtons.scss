@@ -1,10 +1,11 @@
 .nav-btn-container {
-  position: absolute;
+  position: fixed;
   bottom: 50px;
   right: 50px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  z-index: 8000000000;
   .nav-btn {
     width: 40px;
     height: 40px;
@@ -15,5 +16,8 @@
     align-items: center;
     border: none;
     cursor: pointer;
+    &:hover {
+      background-color: rgba(200, 197, 197, 0.662);
+    }
   }
 }

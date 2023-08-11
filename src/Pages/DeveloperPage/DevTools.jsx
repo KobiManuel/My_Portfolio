@@ -11,6 +11,7 @@ import {
   setThirdCard,
   setHeroCard,
 } from "../../Context/portfolioSlice";
+import ScrollButtons from "../../UI/ScrollButtons/ScrollButtons";
 
 // console.log("devtools running");
 
@@ -35,6 +36,21 @@ const DeveloperPage = () => {
     if (component) {
       component.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  };
+
+  const handleScroll = (direction) => {
+    const pagesContainer = devToolsRef.current.querySelector(".devtool-pages");
+    const currentScrollTop = pagesContainer.scrollTop;
+    const pageHeight = window.innerHeight;
+    let targetScrollTop;
+
+    if (direction === "up") {
+      targetScrollTop = currentScrollTop - pageHeight;
+    } else if (direction === "down") {
+      targetScrollTop = currentScrollTop + pageHeight;
+    }
+
+    pagesContainer.scrollTo({ top: targetScrollTop, behavior: "smooth" });
   };
 
   const devToolsRef = useRef(null);
@@ -68,7 +84,10 @@ const DeveloperPage = () => {
           <p>→</p>
         </div>
       </div>
-
+      <ScrollButtons
+        topScrollClick={() => handleScroll("up")}
+        bottomScrollClick={() => handleScroll("down")}
+      />
       <div className="devtool-pages">
         <Hero />
         <LunaCodex />

@@ -14,14 +14,14 @@
   --secondary: #ee5258;
 }
 
-/* @keyframes slide-in-left {
+@keyframes slide-in-left {
   from {
     transform: translateX(-100%);
   }
   to {
     transform: translateX(0);
   }
-} */
+}
 
 @keyframes slide-in-top {
   from {
@@ -32,14 +32,14 @@
   }
 }
 
-/* @keyframes slide-in-right {
+@keyframes slide-in-right {
   from {
     transform: translateX(100%);
   }
   to {
     transform: translateX(0);
   }
-} */
+}
 
 @keyframes red-light-animation {
   0% {

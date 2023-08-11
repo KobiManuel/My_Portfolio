@@ -43,12 +43,7 @@ const Hero = ({ id }) => {
   }, []);
 
   return (
-    <section
-      id={id}
-      className="developer-page"
-      ref={DevtoolsRef}
-      style={{ zIndex: "800000000" }}
-    >
+    <section id={id} className="developer-page" ref={DevtoolsRef}>
       <PageHeader
         title1={"A.I & Developer"}
         title2={"Tools"}
