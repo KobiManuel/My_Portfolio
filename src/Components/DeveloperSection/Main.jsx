@@ -20,7 +20,7 @@ const DeveloperSection = ({ id }) => {
         if (entry.isIntersecting) {
           dispatch(setFirstCard(entry.isIntersecting));
         } else {
-          dispatch(setFirstCard(entry.isIntersecting));
+          dispatch(setFirstCard(false));
         }
       });
     };

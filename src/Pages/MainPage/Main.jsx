@@ -16,6 +16,7 @@ import {
   setFifthCard,
 } from "../../Context/portfolioSlice";
 import { useLocation } from "react-router";
+import ScrollButtons from "../../UI/ScrollButtons/ScrollButtons";
 
 const MainPage = () => {
   // console.log("mainpage running");
@@ -47,6 +48,20 @@ const MainPage = () => {
     },
     [dispatch]
   );
+  const handleScroll = (direction) => {
+    const pagesContainer = containerRef.current.querySelector(".pages");
+    const currentScrollTop = pagesContainer.scrollTop;
+    const pageHeight = window.innerHeight;
+    let targetScrollTop;
+
+    if (direction === "up") {
+      targetScrollTop = currentScrollTop - pageHeight;
+    } else if (direction === "down") {
+      targetScrollTop = currentScrollTop + pageHeight;
+    }
+
+    pagesContainer.scrollTo({ top: targetScrollTop, behavior: "smooth" });
+  };
 
   const containerRef = useRef(null);
 
@@ -99,6 +114,10 @@ const MainPage = () => {
         <AboutMe />
         <ContactMe />
       </div>
+      <ScrollButtons
+        topScrollClick={() => handleScroll("up")}
+        bottomScrollClick={() => handleScroll("down")}
+      />
     </div>
   );
 };
