@@ -16,8 +16,6 @@ const ProjectCard = ({
   homepage,
 }) => {
   const heroRef = useRef(null);
-  const cardRef1 = useRef(null);
-  const cardRef2 = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -37,25 +35,34 @@ const ProjectCard = ({
   };
 
   useEffect(() => {
-    const heroNode = heroRef.current;
-    const cardNode1 = cardRef1.current;
-    const cardNode2 = cardRef2.current;
+    const observerOptions = {
+      threshold: 0.8,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(entry.isIntersecting);
+        } else {
+          setIsVisible(false);
+        }
+      });
+    };
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
+      observerCallback,
+      observerOptions
     );
+    const target = heroRef.current;
 
-    observer.observe(heroNode);
-    observer.observe(cardNode1);
-    observer.observe(cardNode2);
+    if (target) {
+      observer.observe(target);
+    }
 
     return () => {
-      observer.unobserve(heroNode);
-      observer.unobserve(cardNode1);
-      observer.unobserve(cardNode2);
+      if (target) {
+        observer.unobserve(target);
+      }
     };
   }, []);
 
@@ -65,7 +72,6 @@ const ProjectCard = ({
         className={`project-card ${
           isVisible ? "visible" : ""
         } animate-from-left`}
-        ref={cardRef1}
       >
         <span>
           <h3>{title1}</h3>
@@ -141,7 +147,6 @@ const ProjectCard = ({
           isVisible ? "visible blue-bg" : ""
         } animate-from-right`}
         style={{ position: position, height: height, width: width }}
-        ref={cardRef2}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >

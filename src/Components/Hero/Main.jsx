@@ -7,30 +7,37 @@ const Hero = () => {
   const heroCard = useSelector((state) => state.portfolio.heroCard);
   const dispatch = useDispatch();
   const heroRef = useRef(null);
-  const cardRef1 = useRef(null);
-  const cardRef2 = useRef(null);
   // console.log("HERO SECTION !!!!");
 
   useEffect(() => {
-    const heroNode = heroRef.current;
-    const cardNode1 = cardRef1.current;
-    const cardNode2 = cardRef2.current;
+    const observerOptions = {
+      threshold: 0.8,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          dispatch(setHeroCard(entry.isIntersecting));
+        } else {
+          dispatch(setHeroCard(false));
+        }
+      });
+    };
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        dispatch(setHeroCard(entry.isIntersecting));
-      },
-      { threshold: 0.8 }
+      observerCallback,
+      observerOptions
     );
+    const target = heroRef.current;
 
-    observer.observe(heroNode);
-    observer.observe(cardNode1);
-    observer.observe(cardNode2);
+    if (target) {
+      observer.observe(target);
+    }
 
     return () => {
-      observer.unobserve(heroNode);
-      observer.unobserve(cardNode1);
-      observer.unobserve(cardNode2);
+      if (target) {
+        observer.unobserve(target);
+      }
     };
   }, []);
 
@@ -40,7 +47,6 @@ const Hero = () => {
         className={`project-card ${
           heroCard ? "visible" : ""
         } animate-from-left`}
-        ref={cardRef1}
       >
         <h3>Kobi</h3>
         <h3>Manuel</h3>
@@ -51,7 +57,6 @@ const Hero = () => {
         className={`project-card ${
           heroCard ? "visible" : ""
         } animate-from-right`}
-        ref={cardRef2}
       >
         <h6>Portfolio</h6>
         <svg
