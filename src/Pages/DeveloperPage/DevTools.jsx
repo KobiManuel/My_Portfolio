@@ -39,18 +39,22 @@ const DeveloperPage = () => {
   };
 
   const handleScroll = (direction) => {
-    const pagesContainer = devToolsRef.current.querySelector(".devtool-pages");
-    const currentScrollTop = pagesContainer.scrollTop;
+    const pageContainer = devToolsRef.current.querySelector(".devtool-pages");
+    const currentScrollTop = pageContainer.scrollTop;
     const pageHeight = window.innerHeight;
     let targetScrollTop;
 
     if (direction === "up") {
+      console.log("direction is up");
       targetScrollTop = currentScrollTop - pageHeight;
+      console.log(targetScrollTop);
     } else if (direction === "down") {
+      console.log("direction is down");
       targetScrollTop = currentScrollTop + pageHeight;
+      console.log(targetScrollTop);
     }
 
-    pagesContainer.scrollTo({ top: targetScrollTop, behavior: "smooth" });
+    pageContainer.scrollTo({ top: targetScrollTop, behavior: "smooth" });
   };
 
   const devToolsRef = useRef(null);
@@ -84,11 +88,11 @@ const DeveloperPage = () => {
           <p>→</p>
         </div>
       </div>
-      <ScrollButtons
-        topScrollClick={() => handleScroll("up")}
-        bottomScrollClick={() => handleScroll("down")}
-      />
       <div className="devtool-pages">
+        <ScrollButtons
+          topScrollClick={() => handleScroll("up")}
+          bottomScrollClick={() => handleScroll("down")}
+        />
         <Hero />
         <LunaCodex />
         <SynthSpeak />

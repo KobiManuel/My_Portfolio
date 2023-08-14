@@ -12,6 +12,7 @@ import {
   setThirdCard,
   setHeroCard,
 } from "../../Context/portfolioSlice";
+import ScrollButtons from "../../UI/ScrollButtons/ScrollButtons";
 
 const FrontendPage = () => {
   const dispatch = useDispatch();
@@ -36,6 +37,22 @@ const FrontendPage = () => {
     if (component) {
       component.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  };
+
+  const handleScroll = (direction) => {
+    const pageContainer =
+      frontendPageRef.current.querySelector("frontend-pages");
+    const currentScrollTop = pageContainer.scrollTop;
+    const pageHeight = window.innerHeight;
+    let targetScrollTop;
+
+    if (direction === "up") {
+      targetScrollTop = currentScrollTop - pageHeight;
+    } else if (direction === "down") {
+      targetScrollTop = currentScrollTop + pageHeight;
+    }
+
+    pageContainer.scrollTo({ top: targetScrollTop, behavior: "smooth" });
   };
 
   const frontendPageRef = useRef(null);
@@ -75,6 +92,10 @@ const FrontendPage = () => {
         <SapaWeb />
         <ReactMeals />
       </div>
+      <ScrollButtons
+        topScrollClick={() => handleScroll("up")}
+        bottomScrollClick={() => handleScroll("down")}
+      />
     </section>
   );
 };
