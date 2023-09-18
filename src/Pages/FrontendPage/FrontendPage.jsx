@@ -41,7 +41,7 @@ const FrontendPage = () => {
 
   const handleScroll = (direction) => {
     const pageContainer =
-      frontendPageRef.current.querySelector("frontend-pages");
+      frontendPageRef.current.querySelector(".frontend-pages");
     const currentScrollTop = pageContainer.scrollTop;
     const pageHeight = window.innerHeight;
     let targetScrollTop;

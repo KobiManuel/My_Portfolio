@@ -1,14 +1,21 @@
 .dev-tools {
-  position: relative;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory !important;
   height: 100vh;
-  overflow-x: hidden;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer and Edge
-   */
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, and Opera */
+  position: relative;
+  scroll-behavior: smooth !important;
+
+  .devtool-pages {
+    overflow: scroll;
+    scroll-behavior: smooth !important;
+    scroll-snap-type: y mandatory;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, and Opera */
+    }
   }
 }
 
