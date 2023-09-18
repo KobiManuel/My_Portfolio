@@ -47,11 +47,9 @@ const DeveloperPage = () => {
     if (direction === "up") {
       console.log("direction is up");
       targetScrollTop = currentScrollTop - pageHeight;
-      console.log(targetScrollTop);
     } else if (direction === "down") {
       console.log("direction is down");
       targetScrollTop = currentScrollTop + pageHeight;
-      console.log(targetScrollTop);
     }
 
     pageContainer.scrollTo({ top: targetScrollTop, behavior: "smooth" });
@@ -89,15 +87,15 @@ const DeveloperPage = () => {
         </div>
       </div>
       <div className="devtool-pages">
-        <ScrollButtons
-          topScrollClick={() => handleScroll("up")}
-          bottomScrollClick={() => handleScroll("down")}
-        />
         <Hero />
         <LunaCodex />
         <SynthSpeak />
         <SvgConverter />
       </div>
+      <ScrollButtons
+        topScrollClick={() => handleScroll("up")}
+        bottomScrollClick={() => handleScroll("down")}
+      />
     </section>
   );
 };
