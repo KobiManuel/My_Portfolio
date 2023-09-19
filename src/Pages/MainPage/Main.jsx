@@ -71,7 +71,11 @@ const MainPage = () => {
   }, []);
 
   return (
-    <div className="main_page" ref={containerRef}>
+    <div
+      className="main_page"
+      ref={containerRef}
+      // style={{ backgroundImage: heroCard ? "none" : "" }}
+    >
       <div className="fixed">
         {[
           heroCard,

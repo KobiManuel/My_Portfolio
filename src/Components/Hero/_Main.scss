@@ -79,21 +79,28 @@
   }
 
   .project-card:nth-child(2) {
-    position: relative;
+    position: fixed;
+    right: -9%;
     background-color: transparent;
-    height: 400px;
-    width: 400px;
+    width: 70%;
+    height: 100vh;
     border-radius: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    // background-image: url(../../assets/moonlight.svg);
+    // background-size: contain;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // z-index: 2000000000000000;
+
     // background-image: url(../../assets/light2.png);
     // background-size: cover;
     // background-repeat: no-repeat;
     // background-position: center;
     h6 {
-      font-size: 5rem;
+      font-size: 6rem;
       letter-spacing: 0.1em;
       text-shadow: 0 10px 15px rgba(2, 11, 22, 0.2);
       color: #ee5258;
@@ -101,6 +108,7 @@
       font-weight: 900;
       position: absolute;
       z-index: 1000;
+      margin-left: 13px;
     }
     svg {
       width: 100%;

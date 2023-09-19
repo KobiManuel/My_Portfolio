@@ -1,9 +1,9 @@
 .App {
   background-color: #00231a;
-  background-image: url(./assets/bg4.png);
-  background-size: 800px;
+  background-image: url(./assets/moonlight.svg);
+  background-size: 70%;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: 130%;
   width: 100vw;
   max-width: 100vw;
   height: 100vh;

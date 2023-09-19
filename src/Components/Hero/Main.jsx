@@ -62,8 +62,8 @@ const Hero = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
-          width="400"
-          height="400"
+          width="500"
+          height="500"
           viewBox="-1.2 -1.2 2.2 2.2"
         >
           <g
