@@ -65,6 +65,23 @@ const MainPage = () => {
 
   const containerRef = useRef(null);
 
+  const handleArrowButtonClick = (event) => {
+    const pagesContainer = containerRef?.current?.querySelector(".pages");
+    if (!pagesContainer) return;
+    const currentScrollTop = pagesContainer?.scrollTop;
+    const pageHeight = window.innerHeight;
+    let targetScrollTop;
+
+    if (event.keyCode === 38) {
+      targetScrollTop = currentScrollTop - pageHeight;
+    } else if (event.keyCode === 40) {
+      targetScrollTop = currentScrollTop + pageHeight;
+    }
+    pagesContainer.scrollTo({ top: targetScrollTop, behavior: "smooth" });
+  };
+
+  window.addEventListener("keydown", handleArrowButtonClick);
+
   useEffect(() => {
     const fixedDiv = document.querySelector(".fixed");
     fixedDiv.style.transform = "translateX(0)";
