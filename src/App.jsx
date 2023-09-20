@@ -6,8 +6,12 @@ import FrontendPage from "./Pages/FrontendPage/FrontendPage";
 import DesignPortfolio from "./Pages/DesignPortfolio/DesignPortfolio";
 import AboutMe from "./Pages/AboutMe/AboutMe";
 import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setMouseXOffset, setMouseYOffset } from "./Context/portfolioSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
   const containerRef = useRef(null);
   useEffect(() => {
     const container = containerRef.current;
@@ -21,6 +25,10 @@ function App() {
         "background-position",
         `calc(130% + ${offsetX}px) calc(50% + ${offsetY}px)`
       );
+
+      // Dispatch actions to update mouse offsets in Redux state
+      dispatch(setMouseXOffset(offsetX));
+      dispatch(setMouseYOffset(offsetY));
     };
 
     container.addEventListener("mousemove", handleMouseMove);
@@ -28,7 +36,7 @@ function App() {
     return () => {
       container.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App" ref={containerRef}>

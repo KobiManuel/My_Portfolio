@@ -5,6 +5,8 @@ import { setHeroCard } from "../../Context/portfolioSlice";
 
 const Hero = () => {
   const heroCard = useSelector((state) => state.portfolio.heroCard);
+  const mouseXOffset = useSelector((state) => state.portfolio.mouseXOffset);
+  const mouseYOffset = useSelector((state) => state.portfolio.mouseYOffset);
   const dispatch = useDispatch();
   const heroRef = useRef(null);
   // console.log("HERO SECTION !!!!");
@@ -57,6 +59,9 @@ const Hero = () => {
         className={`project-card ${
           heroCard ? "visible" : ""
         } animate-from-right`}
+        style={{
+          transform: `translateX(${mouseXOffset}px) translateY(${mouseYOffset}px)`,
+        }}
       >
         <h6>Portfolio</h6>
         <svg

@@ -7,6 +7,8 @@ const initialState = {
   thirdCard: false,
   fourthCard: false,
   fifthCard: false,
+  mouseXOffset: 0,
+  mouseYOffset: 0,
 };
 
 const portfolioSlice = createSlice({
@@ -31,6 +33,12 @@ const portfolioSlice = createSlice({
     setFifthCard: (state, action) => {
       state.fifthCard = action.payload;
     },
+    setMouseXOffset: (state, action) => {
+      state.mouseXOffset = action.payload;
+    },
+    setMouseYOffset: (state, action) => {
+      state.mouseYOffset = action.payload;
+    },
   },
 });
 
@@ -41,6 +49,8 @@ export const {
   setThirdCard,
   setFourthCard,
   setFifthCard,
+  setMouseXOffset,
+  setMouseYOffset,
 } = portfolioSlice.actions;
 
 export default portfolioSlice.reducer;
