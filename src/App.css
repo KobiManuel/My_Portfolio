@@ -96,3 +96,11 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 700px) {
+  .App {
+    background-position-x: center !important;
+    background-position-y: 20% !important;
+    background-size: 120% !important;
+  }
+}

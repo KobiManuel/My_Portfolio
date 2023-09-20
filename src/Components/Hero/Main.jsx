@@ -46,9 +46,7 @@ const Hero = () => {
   return (
     <section className="hero" ref={heroRef}>
       <div
-        className={`project-card ${
-          heroCard ? "visible" : ""
-        } animate-from-left`}
+        className={`hero-card ${heroCard ? "visible" : ""} animate-from-left`}
       >
         <h3>Kobi</h3>
         <h3>Manuel</h3>
@@ -56,9 +54,7 @@ const Hero = () => {
         <p>Frontend Engineer / Visual Artist</p>
       </div>
       <div
-        className={`project-card ${
-          heroCard ? "visible" : ""
-        } animate-from-right`}
+        className={`hero-card ${heroCard ? "visible" : ""} animate-from-right`}
         style={{
           transform: `translateX(${mouseXOffset}px) translateY(${mouseYOffset}px)`,
         }}
