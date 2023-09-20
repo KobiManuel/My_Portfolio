@@ -18,17 +18,20 @@ function App() {
 
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
-      const offsetX = ((clientX / window.innerWidth) * 60).toFixed(2);
-      const offsetY = ((clientY / window.innerHeight) * 60).toFixed(2);
 
-      container.style.setProperty(
-        "background-position",
-        `calc(130% + ${offsetX}px) calc(50% + ${offsetY}px)`
-      );
+      if (window.innerWidth > 768) {
+        const offsetX = ((clientX / window.innerWidth) * 60).toFixed(2);
+        const offsetY = ((clientY / window.innerHeight) * 60).toFixed(2);
 
-      // Dispatch actions to update mouse offsets in Redux state
-      dispatch(setMouseXOffset(offsetX));
-      dispatch(setMouseYOffset(offsetY));
+        container.style.setProperty(
+          "background-position",
+          `calc(130% + ${offsetX}px) calc(50% + ${offsetY}px)`
+        );
+
+        // Dispatch actions to update mouse offsets in Redux state
+        dispatch(setMouseXOffset(offsetX));
+        dispatch(setMouseYOffset(offsetY));
+      }
     };
 
     container.addEventListener("mousemove", handleMouseMove);

@@ -159,3 +159,11 @@
     display: none !important;
   }
 }
+
+@media screen and (max-width: 392px) {
+  .hero-card:first-child {
+    h3 {
+      font-size: 4rem !important;
+    }
+  }
+}
