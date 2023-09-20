@@ -182,7 +182,7 @@
 
 @media screen and (max-width: 522px) {
   .projects-card:first-child {
-    bottom: 105px;
+    bottom: 100px;
     margin-left: 20px;
     height: fit-content !important;
     gap: 24px !important;
@@ -213,5 +213,6 @@
   .projects-card:nth-child(2) {
     width: 100% !important;
     height: 70% !important;
+    cursor: default !important;
   }
 }
