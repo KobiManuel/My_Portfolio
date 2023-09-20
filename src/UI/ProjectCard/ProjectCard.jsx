@@ -20,10 +20,21 @@ const ProjectCard = ({
   const [isHovered, setIsHovered] = useState(false);
   const [hovered, setHovered] = useState(false);
 
-  // console.log("Project Card !!!");
+  console.log("Project Card !!!");
   const buttonStyle = {
     backgroundColor: isHovered && hoverColor,
   };
+
+  const phoneScreenWidth = 400;
+  const isPhoneScreen = window.innerWidth < phoneScreenWidth;
+
+  useEffect(() => {
+    if (isPhoneScreen) {
+      setHovered(true);
+    }
+
+    return () => {};
+  }, []);
 
   const handleEmailButtonClick = () => {
     const email = "emmakobi91@gmail.com";
