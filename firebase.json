@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "build/kobi-dev-34a1c",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
