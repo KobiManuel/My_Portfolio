@@ -25,7 +25,7 @@ const ProjectCard = ({
     backgroundColor: isHovered && hoverColor,
   };
 
-  const phoneScreenWidth = 400;
+  const phoneScreenWidth = 900;
   const isPhoneScreen = window.innerWidth < phoneScreenWidth;
 
   useEffect(() => {
