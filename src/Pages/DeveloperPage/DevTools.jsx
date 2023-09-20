@@ -12,6 +12,7 @@ import {
   setHeroCard,
 } from "../../Context/portfolioSlice";
 import ScrollButtons from "../../UI/ScrollButtons/ScrollButtons";
+import BackwardArrow from "../../UI/BackwardArrow/BackwardArrow";
 
 // console.log("devtools running");
 
@@ -59,6 +60,7 @@ const DeveloperPage = () => {
 
   return (
     <section className="dev-tools" ref={devToolsRef}>
+      <BackwardArrow />
       <div className="fixed">
         {cardValues.map((card, index) => (
           <button

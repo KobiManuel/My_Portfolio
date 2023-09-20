@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./_PageHeader.scss";
-import arrow from "./images/angle-double-left.png";
-import { useNavigate } from "react-router";
+import BackwardArrow from "../BackwardArrow/BackwardArrow";
 const PageHeader = ({ title1, title2, stack, banner }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const navigate = useNavigate();
   const buttonStyle = {
     backgroundColor: isHovered && "",
   };
@@ -51,18 +49,15 @@ const PageHeader = ({ title1, title2, stack, banner }) => {
   };
   return (
     <div className="page-header_container">
-      <button className="backward-arrow" onClick={() => navigate(-1)}>
-        <img src={arrow} alt="arrow-icon" />
-      </button>
       <div className="page-header">
-        <div id="card1" className="project-card visible">
+        <div id="card1" className="projects-card visible">
           <span>
-            <h3>{title1}</h3>
-            <h3>{title2}</h3>
+            <h3 className="h3">{title1}</h3>
+            <h3 className="h3">{title2}</h3>
           </span>
           <span></span>
 
-          <p>{stack}</p>
+          <p className="p1">{stack}</p>
 
           <a
             id="devtoolsBtn"
@@ -76,7 +71,7 @@ const PageHeader = ({ title1, title2, stack, banner }) => {
         </div>
         <div
           id="secondDiv"
-          className="project-card visible"
+          className="projects-card visible"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           onLoad={handlePageLoad}

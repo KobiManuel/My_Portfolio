@@ -204,19 +204,72 @@
   animation-delay: 5s;
 }
 
+@media screen and (max-width: 1142px) {
+  .project-card:first-child {
+    h3 {
+      font-size: 4rem !important;
+    }
+  }
+}
+
 @media screen and (max-width: 635px) {
   .card {
     flex-direction: column;
     justify-content: space-between;
-    padding: 50px 0;
+    padding: 100px 0;
     z-index: 700000;
     width: 90vw;
     max-width: 90vw;
     .project-card:first-child {
-      position: static !important;
-      height: 50%;
+      bottom: 100px;
+      height: fit-content;
       //   padding: 0 20px;
       gap: 16px;
+      width: 100%;
+      h3 {
+        font-size: 2rem !important;
+        width: fit-content;
+        line-height: 4rem;
+        white-space: nowrap;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .project-card:nth-child(2) {
+      height: 50% !important;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 507px) {
+  .card {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 100px 0;
+    z-index: 700000;
+    width: 90vw;
+    max-width: 90vw;
+    .project-card:first-child {
+      bottom: 100px;
+      height: fit-content;
+      //   padding: 0 20px;
+      gap: 16px;
+      width: 100%;
+      h3 {
+        font-size: 2rem;
+        width: fit-content;
+        line-height: 4rem;
+        white-space: nowrap;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      p {
+        width: fit-content;
+        font-size: 20px;
+      }
     }
     .project-card:nth-child(2) {
       height: 50% !important;

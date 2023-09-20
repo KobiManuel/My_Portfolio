@@ -13,6 +13,7 @@ import {
   setHeroCard,
 } from "../../Context/portfolioSlice";
 import ScrollButtons from "../../UI/ScrollButtons/ScrollButtons";
+import BackwardArrow from "../../UI/BackwardArrow/BackwardArrow";
 
 const FrontendPage = () => {
   const dispatch = useDispatch();
@@ -59,6 +60,7 @@ const FrontendPage = () => {
 
   return (
     <section className="frontend-page" ref={frontendPageRef}>
+      <BackwardArrow />
       <div className="fixed">
         {cardValues.map((card, index) => (
           <button

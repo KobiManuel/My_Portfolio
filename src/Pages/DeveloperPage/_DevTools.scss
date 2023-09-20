@@ -67,15 +67,16 @@
   .card {
     flex-direction: column;
     justify-content: space-between;
-    padding: 50px 0;
+    padding: 100px 0;
     z-index: 700000;
     width: 90vw;
     max-width: 90vw;
     .project-card:first-child {
-      position: static !important;
-      height: 50%;
+      bottom: 100px;
+      height: fit-content;
       //   padding: 0 20px;
       gap: 16px;
+      width: 100%;
     }
     .project-card:nth-child(2) {
       height: 50% !important;
