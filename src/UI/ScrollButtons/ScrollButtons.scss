@@ -21,3 +21,9 @@
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .nav-btn {
+    cursor: default !important;
+  }
+}
