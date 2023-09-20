@@ -204,6 +204,12 @@
   animation-delay: 5s;
 }
 
+@media screen and (max-width: 900px) {
+  .project-card:nth-child(2) {
+    cursor: default !important;
+  }
+}
+
 @media screen and (max-width: 1142px) {
   .project-card:first-child {
     h3 {

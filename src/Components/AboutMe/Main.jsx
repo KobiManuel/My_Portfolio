@@ -45,6 +45,7 @@ const AboutMe = () => {
     <section className="developer-section" ref={AboutMeRef}>
       <ProjectCard
         title1="About Me"
+        title2="****"
         description="Evidently Creative and Poetic in a way that seems not to be of this earth"
         Image={developer}
         hoverColor="#012c3a"

@@ -180,9 +180,15 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  .projects-card:nth-child(2) {
+    cursor: default !important;
+  }
+}
+
 @media screen and (max-width: 522px) {
   .projects-card:first-child {
-    bottom: 100px;
+    bottom: 95px;
     margin-left: 20px;
     height: fit-content !important;
     gap: 24px !important;
