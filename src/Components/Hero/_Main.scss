@@ -150,7 +150,10 @@
     align-items: normal !important;
   }
   .hero-card:first-child {
-    margin-bottom: 100px !important;
+    margin-bottom: 200px !important;
+    h3 {
+      font-size: 5rem !important;
+    }
   }
   .hero-card:nth-child(2) {
     display: none !important;
