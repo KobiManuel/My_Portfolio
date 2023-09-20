@@ -46,10 +46,8 @@ const DeveloperPage = () => {
     let targetScrollTop;
 
     if (direction === "up") {
-      console.log("direction is up");
       targetScrollTop = currentScrollTop - pageHeight;
     } else if (direction === "down") {
-      console.log("direction is down");
       targetScrollTop = currentScrollTop + pageHeight;
     }
 
@@ -57,6 +55,24 @@ const DeveloperPage = () => {
   };
 
   const devToolsRef = useRef(null);
+
+  const handleArrowButtonClick = (event) => {
+    const pagesContainer =
+      devToolsRef?.current?.querySelector(".devtool-pages");
+    if (!pagesContainer) return;
+    const currentScrollTop = pagesContainer?.scrollTop;
+    const pageHeight = window.innerHeight;
+    let targetScrollTop;
+
+    if (event.keyCode === 38) {
+      targetScrollTop = currentScrollTop - pageHeight;
+    } else if (event.keyCode === 40) {
+      targetScrollTop = currentScrollTop + pageHeight;
+    }
+    pagesContainer.scrollTo({ top: targetScrollTop, behavior: "smooth" });
+  };
+
+  window.addEventListener("keydown", handleArrowButtonClick);
 
   return (
     <section className="dev-tools" ref={devToolsRef}>

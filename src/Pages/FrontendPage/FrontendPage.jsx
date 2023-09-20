@@ -58,6 +58,24 @@ const FrontendPage = () => {
 
   const frontendPageRef = useRef(null);
 
+  const handleArrowButtonClick = (event) => {
+    const pagesContainer =
+      frontendPageRef?.current?.querySelector(".frontend-pages");
+    if (!pagesContainer) return;
+    const currentScrollTop = pagesContainer?.scrollTop;
+    const pageHeight = window.innerHeight;
+    let targetScrollTop;
+
+    if (event.keyCode === 38) {
+      targetScrollTop = currentScrollTop - pageHeight;
+    } else if (event.keyCode === 40) {
+      targetScrollTop = currentScrollTop + pageHeight;
+    }
+    pagesContainer.scrollTo({ top: targetScrollTop, behavior: "smooth" });
+  };
+
+  window.addEventListener("keydown", handleArrowButtonClick);
+
   return (
     <section className="frontend-page" ref={frontendPageRef}>
       <BackwardArrow />
