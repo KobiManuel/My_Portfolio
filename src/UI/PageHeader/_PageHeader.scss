@@ -182,12 +182,25 @@
 
 @media screen and (max-width: 522px) {
   .projects-card:first-child {
+    bottom: 105px;
     margin-left: 20px;
+    height: fit-content !important;
+    gap: 24px !important;
     h3 {
       font-size: 3rem !important;
+      line-height: 3rem !important;
+    }
+    p {
+      font-size: 20px !important;
+    }
+    #devtoolsBtn {
+      display: none !important;
     }
   }
   .page-header {
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
     width: 100vw !important;
     left: 0;
     .h3 {
@@ -196,5 +209,9 @@
     .p1 {
       width: fit-content !important;
     }
+  }
+  .projects-card:nth-child(2) {
+    width: 100% !important;
+    height: 70% !important;
   }
 }
