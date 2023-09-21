@@ -6,10 +6,11 @@ import FrontendPage from "./Pages/FrontendPage/FrontendPage";
 import DesignPortfolio from "./Pages/DesignPortfolio/DesignPortfolio";
 import AboutMe from "./Pages/AboutMe/AboutMe";
 import { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setMouseXOffset, setMouseYOffset } from "./Context/portfolioSlice";
 
 function App() {
+  const heroCard = useSelector((state) => state.portfolio.heroCard);
   const dispatch = useDispatch();
 
   const containerRef = useRef(null);
@@ -19,7 +20,7 @@ function App() {
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
 
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > 768 && heroCard) {
         const offsetX = ((clientX / window.innerWidth) * 60).toFixed(2);
         const offsetY = ((clientY / window.innerHeight) * 60).toFixed(2);
 
@@ -31,6 +32,11 @@ function App() {
         // Dispatch actions to update mouse offsets in Redux state
         dispatch(setMouseXOffset(offsetX));
         dispatch(setMouseYOffset(offsetY));
+      } else {
+        // Reset the mouseX and mouseY offsets when heroCard is false
+        container.style.setProperty("background-position", "130%");
+        dispatch(setMouseXOffset("0"));
+        dispatch(setMouseYOffset("0"));
       }
     };
 
@@ -39,7 +45,7 @@ function App() {
     return () => {
       container.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [dispatch]);
+  }, [dispatch, heroCard]);
 
   return (
     <div className="App" ref={containerRef}>
