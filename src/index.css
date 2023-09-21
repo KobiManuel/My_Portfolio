@@ -41,7 +41,7 @@
   }
 }
 
-@keyframes red-light-animation {
+/* @keyframes red-light-animation {
   0% {
     left: -20px;
     transform: translate3d(100%, 0, 0);
@@ -60,7 +60,7 @@
   100% {
     width: 100%;
   }
-}
+} */
 
 @keyframes ripple {
   0% {
