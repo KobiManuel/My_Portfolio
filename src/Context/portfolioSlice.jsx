@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  isVisible: false,
   heroCard: true,
   firstCard: false,
   secondCard: false,
@@ -15,6 +16,9 @@ const portfolioSlice = createSlice({
   name: "portfolio",
   initialState,
   reducers: {
+    setIsVisible: (state, action) => {
+      state.isVisible = action.payload;
+    },
     setHeroCard: (state, action) => {
       state.heroCard = action.payload;
     },
@@ -43,6 +47,7 @@ const portfolioSlice = createSlice({
 });
 
 export const {
+  setIsVisible,
   setHeroCard,
   setFirstCard,
   setSecondCard,

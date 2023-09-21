@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./_ProjectCard.scss";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsVisible } from "../../Context/portfolioSlice";
 const ProjectCard = ({
   title1,
   title2,
@@ -16,9 +18,11 @@ const ProjectCard = ({
   homepage,
 }) => {
   const heroRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const isVisible = useSelector((state) => state.portfolio.isVisible);
   const [isHovered, setIsHovered] = useState(false);
   const [hovered, setHovered] = useState(false);
+
+  const dispatch = useDispatch();
 
   // console.log("Project Card !!!");
   const buttonStyle = {
@@ -53,9 +57,9 @@ const ProjectCard = ({
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setIsVisible(entry.isIntersecting);
+          dispatch(setIsVisible(entry.isIntersecting));
         } else {
-          setIsVisible(false);
+          dispatch(setIsVisible(false));
         }
       });
     };
