@@ -1,10 +1,12 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import banner from "./images/banner3.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { setSecondCard } from "../../Context/portfolioSlice";
 
 const FrontendSection = () => {
+  const secondCard = useSelector((state) => state.portfolio.secondCard);
+
   const dispatch = useDispatch();
   const frontendSectionRef = useRef(null);
   // console.log("FRONTEND SECTION !!!!");
@@ -49,6 +51,7 @@ const FrontendSection = () => {
         Image={banner}
         hoverColor="#012c5a"
         link={"/projects/frontend"}
+        isVisible={secondCard}
       />
     </section>
   );

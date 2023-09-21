@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import developer from "./images/banner.jpg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFifthCard } from "../../Context/portfolioSlice";
 
 const ContactMe = () => {
+  const fifthCard = useSelector((state) => state.portfolio.fifthCard);
   const ContactMeRef = useRef(null);
   const dispatch = useDispatch();
   // console.log("CONTACT ME !!!!");
@@ -48,6 +49,7 @@ const ContactMe = () => {
         showContact
         Image={developer}
         hoverColor="#012c3a"
+        isVisible={fifthCard}
       />
     </section>
   );

@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import banner from "./images/banner.jpg";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setThirdCard } from "../../Context/portfolioSlice";
 
 const DesignPage = () => {
+  const thirdCard = useSelector((state) => state.portfolio.thirdCard);
+
   const dispatch = useDispatch();
   const designSectionRef = useRef(null);
   // console.log("dESIGN SECTION !!!!");
@@ -49,6 +51,7 @@ const DesignPage = () => {
         Image={banner}
         hoverColor="#012c5a"
         link={"/projects/artPortfolio"}
+        isVisible={thirdCard}
       />
     </section>
   );

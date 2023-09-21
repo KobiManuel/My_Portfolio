@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import developer from "./images/AI post blog.jpg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFirstCard } from "../../Context/portfolioSlice";
 
 const DeveloperSection = ({ id }) => {
+  const firstCard = useSelector((state) => state.portfolio.firstCard);
   const dispatch = useDispatch();
 
   const developerSectionRef = useRef(null);
@@ -56,6 +57,7 @@ const DeveloperSection = ({ id }) => {
         Image={developer}
         hoverColor="#012c3a"
         link={"/projects/developer"}
+        isVisible={firstCard}
       />
     </section>
   );

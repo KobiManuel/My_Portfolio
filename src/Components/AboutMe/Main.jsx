@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import developer from "./images/banner.jpg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFourthCard } from "../../Context/portfolioSlice";
 
 const AboutMe = () => {
+  const fourthCard = useSelector((state) => state.portfolio.fourthCard);
+
   const dispatch = useDispatch();
   const AboutMeRef = useRef(null);
   // console.log("ABOUT ME !!");
@@ -50,6 +52,7 @@ const AboutMe = () => {
         Image={developer}
         hoverColor="#012c3a"
         link={"/aboutMe"}
+        isVisible={fourthCard}
       />
     </section>
   );

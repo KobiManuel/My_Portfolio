@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./_ProjectCard.scss";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setIsVisible } from "../../Context/portfolioSlice";
+
 const ProjectCard = ({
   title1,
   title2,
@@ -16,29 +15,17 @@ const ProjectCard = ({
   height,
   width,
   homepage,
+  isVisible,
 }) => {
   const heroRef = useRef(null);
-  const isVisible = useSelector((state) => state.portfolio.isVisible);
+
   const [isHovered, setIsHovered] = useState(false);
   const [hovered, setHovered] = useState(false);
-
-  const dispatch = useDispatch();
 
   // console.log("Project Card !!!");
   const buttonStyle = {
     backgroundColor: isHovered && hoverColor,
   };
-
-  const phoneScreenWidth = 900;
-  const isPhoneScreen = window.innerWidth < phoneScreenWidth;
-
-  useEffect(() => {
-    if (isPhoneScreen) {
-      setHovered(true);
-    }
-
-    return () => {};
-  }, []);
 
   const handleEmailButtonClick = () => {
     const email = "emmakobi91@gmail.com";
@@ -48,38 +35,6 @@ const ProjectCard = ({
 
     window.location.href = mailtoUrl;
   };
-
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.8,
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          dispatch(setIsVisible(entry.isIntersecting));
-        } else {
-          dispatch(setIsVisible(false));
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
-    );
-    const target = heroRef.current;
-
-    if (target) {
-      observer.observe(target);
-    }
-
-    return () => {
-      if (target) {
-        observer.unobserve(target);
-      }
-    };
-  }, []);
 
   return (
     <div className="card" ref={heroRef}>
