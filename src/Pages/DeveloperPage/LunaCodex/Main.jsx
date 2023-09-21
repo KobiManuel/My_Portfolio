@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import codex from "../../../Components/DeveloperSection/images/A.I.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFirstCard } from "../../../Context/portfolioSlice";
 
 const LunaCodex = ({ id }) => {
+  const firstCard = useSelector((state) => state.portfolio.firstCard);
+
   const dispatch = useDispatch();
   const lunaCodexRef = useRef(null);
 
@@ -57,6 +59,7 @@ const LunaCodex = ({ id }) => {
         hoverColor="#012c3a"
         link={"/"}
         homepage={false}
+        isVisible={firstCard}
       />
     </section>
   );

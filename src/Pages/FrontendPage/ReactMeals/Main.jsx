@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import banner from "../../../Components/FrontendSection/images/banner2.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setThirdCard } from "../../../Context/portfolioSlice";
 
 const ReactMeals = ({ id }) => {
+  const thirdCard = useSelector((state) => state.portfolio.thirdCard);
+
   const dispatch = useDispatch();
   const ReactMealsRef = useRef(null);
 
@@ -57,6 +59,7 @@ const ReactMeals = ({ id }) => {
         hoverColor="#012c3a"
         link={"https://ReactMeals.co/"}
         homepage={false}
+        isVisible={thirdCard}
       />
     </section>
   );

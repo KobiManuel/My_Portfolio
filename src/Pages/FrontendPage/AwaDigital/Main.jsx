@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFirstCard } from "../../../Context/portfolioSlice";
 import banner from "../../../Components/FrontendSection/images/banner2.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 
 const AwaDigital = ({ id }) => {
+  const firstCard = useSelector((state) => state.portfolio.firstCard);
+
   const dispatch = useDispatch();
   const AwaDigitalRef = useRef(null);
 
@@ -56,6 +58,7 @@ const AwaDigital = ({ id }) => {
         hoverColor="#012c3a"
         link={"https://awadigital.co/"}
         homepage={false}
+        isVisible={firstCard}
       />
     </section>
   );

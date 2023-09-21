@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSecondCard } from "../../../Context/portfolioSlice";
 import banner from "../../../Components/FrontendSection/images/banner2.jpg";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 
 const SapaWeb = ({ id }) => {
+  const secondCard = useSelector((state) => state.portfolio.secondCard);
+
   const dispatch = useDispatch();
   const SapaWebRef = useRef(null);
 
@@ -57,6 +59,7 @@ const SapaWeb = ({ id }) => {
         hoverColor="#012c3a"
         link={"https://trysapa.com/"}
         homepage={false}
+        isVisible={secondCard}
       />
     </section>
   );

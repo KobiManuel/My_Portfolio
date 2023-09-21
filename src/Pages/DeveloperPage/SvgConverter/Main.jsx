@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setThirdCard } from "../../../Context/portfolioSlice";
 
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
@@ -8,6 +8,8 @@ import banner from "./images/banner.png";
 // console.log("svgconverter");
 
 const SvgConverter = ({ id }) => {
+  const thirdCard = useSelector((state) => state.portfolio.thirdCard);
+
   const dispatch = useDispatch();
   const SvgConverterRef = useRef(null);
 
@@ -58,6 +60,7 @@ const SvgConverter = ({ id }) => {
         hoverColor="#012c3a"
         link={"/"}
         homepage={false}
+        isVisible={thirdCard}
       />
     </section>
   );
