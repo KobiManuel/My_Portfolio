@@ -103,3 +103,10 @@
     background-position-y: 20% !important;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .App {
+    background-position-y: 0 !important;
+    background-size: 600px !important;
+  }
+}
