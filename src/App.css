@@ -67,10 +67,17 @@ nav div a svg:hover {
 .kobi {
   font-size: 1.4rem;
   transition: color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .kobi:hover {
   color: rgba(255, 255, 255, 0.499);
 }
+
+/* .html-arrow {
+  line-height: 25%;
+} */
 
 .fixed {
   position: fixed;

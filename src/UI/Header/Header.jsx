@@ -7,7 +7,12 @@ const Header = ({ subPage }) => {
       <nav>
         <Link to="/" className="name-container">
           <p className="kobi">
-            {subPage && window.innerWidth < 1000 ? "←" : ""} Kobi Manuel
+            {subPage && window.innerWidth < 1000 ? (
+              <p className="html-arrow">←</p>
+            ) : (
+              ""
+            )}{" "}
+            Kobi Manuel
           </p>
         </Link>
         <div>
