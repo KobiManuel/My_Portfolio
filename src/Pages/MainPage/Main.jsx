@@ -17,6 +17,7 @@ import {
 } from "../../Context/portfolioSlice";
 import { useLocation } from "react-router";
 import ScrollButtons from "../../UI/ScrollButtons/ScrollButtons";
+import Header from "../../UI/Header/Header";
 const MainPage = () => {
   // console.log("mainpage running");
   const dispatch = useDispatch();
@@ -92,6 +93,7 @@ const MainPage = () => {
       ref={containerRef}
       // style={{ backgroundImage: heroCard ? "none" : "" }}
     >
+      <Header subPage={false} />
       <div className="fixed">
         {[
           heroCard,
