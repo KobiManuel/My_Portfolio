@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import banner from "./images/banner.jpg";
+import banner from "../../assets/images/designSection.jpg";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setThirdCard } from "../../Context/portfolioSlice";

@@ -1,5 +1,5 @@
 import React from "react";
-import banner from "../../../Components/AboutMe/images/banner.jpg";
+import banner from "../../../assets/images/aboutMeSection.jpg";
 import PageHeader from "../../../UI/PageHeader/PageHeader";
 
 const Hero = ({ id }) => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
-import developer from "./images/AI post blog.jpg";
+import developer from "../../assets/images/developerSection.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { setFirstCard } from "../../Context/portfolioSlice";
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import banner from "./images/AI post blog.jpg";
+import banner from "../../../assets/images/developerSection.jpg";
 import PageHeader from "../../../UI/PageHeader/PageHeader";
 import { useDispatch } from "react-redux";
 import { setHeroCard } from "../../../Context/portfolioSlice";

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import ProjectCard from "../../UI/ProjectCard/ProjectCard";
-import developer from "./images/banner.jpg";
+import developer from "../../assets/images/contactMeSection.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { setFifthCard } from "../../Context/portfolioSlice";
 
@@ -40,7 +40,7 @@ const ContactMe = () => {
         observer.unobserve(target);
       }
     };
-  }, [setFifthCard]);
+  }, []);
 
   return (
     <section className="developer-section" ref={ContactMeRef}>
