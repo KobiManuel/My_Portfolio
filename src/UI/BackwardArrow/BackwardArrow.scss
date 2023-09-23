@@ -29,8 +29,12 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 500px) {
   .backward-arrow {
-    display: none !important;
+    width: 30px !important;
+    left: 20px !important;
+    img {
+      width: 90% !important;
+    }
   }
 }

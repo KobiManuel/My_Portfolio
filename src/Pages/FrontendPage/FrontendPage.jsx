@@ -14,7 +14,6 @@ import {
 } from "../../Context/portfolioSlice";
 import ScrollButtons from "../../UI/ScrollButtons/ScrollButtons";
 import BackwardArrow from "../../UI/BackwardArrow/BackwardArrow";
-import Header from "../../UI/Header/Header";
 
 const FrontendPage = () => {
   const dispatch = useDispatch();
@@ -79,7 +78,6 @@ const FrontendPage = () => {
 
   return (
     <section className="frontend-page" ref={frontendPageRef}>
-      <Header />
       <BackwardArrow />
       <div className="fixed">
         {cardValues.map((card, index) => (

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const BackwardArrow = () => {
   return (
-    <Link to={"/"}>
+    <Link to={"/"} style={{ zIndex: 70000000000000 }}>
       <button className="backward-arrow">
         <img src={arrow} alt="arrow-icon" />
       </button>
