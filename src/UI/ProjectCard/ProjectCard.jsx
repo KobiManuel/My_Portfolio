@@ -29,7 +29,7 @@ const ProjectCard = ({
 
   const handleEmailButtonClick = () => {
     const email = "emmakobi91@gmail.com";
-    const subject = "Hi, would you be interested in working with me?";
+    const subject = "Hi, would you be interested in working with me/us?";
 
     const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
 
