@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFirstCard } from "../../../Context/portfolioSlice";
-import banner from "../../../Components/FrontendSection/images/banner3.jpg";
+import banner from "../../../assets/images/awadigital.png";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 
 const AwaDigital = ({ id }) => {

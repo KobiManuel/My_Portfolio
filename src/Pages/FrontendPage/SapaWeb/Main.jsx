@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSecondCard } from "../../../Context/portfolioSlice";
-import banner from "../../../Components/FrontendSection/images/banner3.jpg";
+import banner from "../../../assets/images/sapaweb.png";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 
 const SapaWeb = ({ id }) => {

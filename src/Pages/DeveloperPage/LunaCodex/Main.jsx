@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import codex from "../../../assets/images/lunacodex.png";
+import codex from "../../../assets/images/lunacodex1.png";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setFirstCard } from "../../../Context/portfolioSlice";

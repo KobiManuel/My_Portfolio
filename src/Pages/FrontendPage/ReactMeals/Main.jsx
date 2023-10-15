@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import banner from "../../../Components/FrontendSection/images/banner3.jpg";
+import banner from "../../../assets/images/jazzyburger.png";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setThirdCard } from "../../../Context/portfolioSlice";
@@ -52,7 +52,7 @@ const ReactMeals = ({ id }) => {
       style={{ zIndex: "800000000" }}
     >
       <ProjectCard
-        title1="React Meals"
+        title1="Jazzys Burger"
         title2="Website"
         description="Frontend Development"
         Image={banner}
