@@ -58,7 +58,7 @@ const SvgConverter = ({ id }) => {
         description="Frontend Development"
         Image={banner}
         hoverColor="#012c3a"
-        link={"/"}
+        link={"https://svg-to-jsx-converter.web.app/"}
         homepage={false}
         isVisible={thirdCard}
       />

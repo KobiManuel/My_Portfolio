@@ -16,6 +16,7 @@ const ProjectCard = ({
   width,
   homepage,
   isVisible,
+  objectFit,
 }) => {
   const heroRef = useRef(null);
 
@@ -122,6 +123,7 @@ const ProjectCard = ({
       >
         <img
           src={Image}
+          style={{ objectFit: objectFit }}
           className={`image ${isVisible ? "visible" : ""} animate-to-right`}
           alt="project background"
         />

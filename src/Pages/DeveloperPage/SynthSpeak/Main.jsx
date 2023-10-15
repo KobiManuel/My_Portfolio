@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import codex from "../../../Components/DeveloperSection/images/A.I.jpg";
+import codex from "../../../assets/images/synthspeak.png";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setSecondCard } from "../../../Context/portfolioSlice";
@@ -59,6 +59,7 @@ const SynthSpeak = ({ id }) => {
         link={"https://synthspeak.web.app/"}
         homepage={false}
         isVisible={secondCard}
+        // objectFit={"contain"}
       />
     </section>
   );

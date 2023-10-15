@@ -49,7 +49,7 @@ const DesignPage = () => {
         title2="Portfolio"
         description="Visual Design"
         Image={banner}
-        hoverColor="#012c5a"
+        hoverColor="#012c3a"
         link={"/projects/artPortfolio"}
         isVisible={thirdCard}
       />

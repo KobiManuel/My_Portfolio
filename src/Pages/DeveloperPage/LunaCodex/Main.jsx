@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import codex from "../../../Components/DeveloperSection/images/A.I.jpg";
+import codex from "../../../assets/images/lunacodex.png";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setFirstCard } from "../../../Context/portfolioSlice";
@@ -57,9 +57,10 @@ const LunaCodex = ({ id }) => {
         description="Fullstack development"
         Image={codex}
         hoverColor="#012c3a"
-        link={"/"}
+        link={"https://luna-codex.web.app/"}
         homepage={false}
         isVisible={firstCard}
+        // objectFit={"contain"}
       />
     </section>
   );

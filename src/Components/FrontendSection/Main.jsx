@@ -49,7 +49,7 @@ const FrontendSection = () => {
         title2="Projects"
         description="Frontend development"
         Image={banner}
-        hoverColor="#012c5a"
+        hoverColor="#012c3a"
         link={"/projects/frontend"}
         isVisible={secondCard}
       />

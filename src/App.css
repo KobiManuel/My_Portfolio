@@ -48,6 +48,10 @@ nav {
 nav div {
   display: flex;
   gap: 24px;
+  align-items: center;
+}
+nav div a {
+  height: 24px;
 }
 
 nav div a svg {
@@ -62,6 +66,13 @@ nav div a svg:hover {
 }
 .name-container {
   text-decoration: none;
+}
+
+.resume {
+  text-decoration: none;
+  &:hover {
+    color: rgba(255, 255, 255, 0.652);
+  }
 }
 
 .kobi {
@@ -192,6 +203,13 @@ nav div a svg:hover {
   }
   nav div a svg {
     width: 14px;
+    height: 14px;
+  }
+  nav div {
+    gap: 16px;
+  }
+  nav div a {
+    font-size: 0.8rem;
     height: 14px;
   }
 }
