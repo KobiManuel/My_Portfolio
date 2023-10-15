@@ -57,7 +57,7 @@ const ReactMeals = ({ id }) => {
         description="Frontend Development"
         Image={banner}
         hoverColor="#012c3a"
-        link={"https://ReactMeals.co/"}
+        link={"https://www.jazzysburger.com/"}
         homepage={false}
         isVisible={thirdCard}
       />
