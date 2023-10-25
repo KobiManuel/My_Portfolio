@@ -22,7 +22,9 @@ const Header = ({ subPage }) => {
       )}
       <nav>
         <Link to="/" className="name-container">
-          <p className="kobi">Kobi Manuel</p>
+          <p className="kobi">
+            {subPage && window.innerWidth < 1000 ? "Go back" : "Kobi Manuel"}
+          </p>
         </Link>
         <div>
           {" "}
