@@ -12,7 +12,11 @@
     position: relative;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer and Edge */
-
+    > * {
+      scroll-snap-align: start;
+      scroll-snap-stop: always; // Forces stop at each snap point
+      height: 100vh;
+    }
     &::-webkit-scrollbar {
       display: none; /* Chrome, Safari, and Opera */
     }
