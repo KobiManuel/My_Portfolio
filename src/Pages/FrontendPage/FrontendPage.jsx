@@ -4,6 +4,9 @@ import AwaDigital from "./AwaDigital/Main";
 import "./_FrontendPage.scss";
 import ReactMeals from "./ReactMeals/Main";
 import SapaWeb from "./SapaWeb/Main";
+import ClipMate from "./Clipmate/Main";
+import FluentShop from "./Fluentshop/Main";
+import EaziGifting from "./Eazigifting/Main";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,6 +14,8 @@ import {
   setSecondCard,
   setThirdCard,
   setHeroCard,
+  setFourthCard,
+  setFifthCard,
 } from "../../Context/portfolioSlice";
 import ScrollButtons from "../../UI/ScrollButtons/ScrollButtons";
 import BackwardArrow from "../../UI/BackwardArrow/BackwardArrow";
@@ -24,14 +29,17 @@ const FrontendPage = () => {
   const firstCard = useSelector((state) => state.portfolio.firstCard);
   const secondCard = useSelector((state) => state.portfolio.secondCard);
   const thirdCard = useSelector((state) => state.portfolio.thirdCard);
+  const fourthCard = useSelector((state) => state.portfolio.fourthCard);
+  const fifthCard = useSelector((state) => state.portfolio.fifthCard);
 
-  const cardValues = [heroCard, firstCard, secondCard, thirdCard];
+  const cardValues = [heroCard, firstCard, secondCard, thirdCard, fourthCard];
 
   const handleCardClick = (index) => {
     dispatch(setHeroCard(index === 0));
     dispatch(setFirstCard(index === 1));
     dispatch(setSecondCard(index === 2));
     dispatch(setThirdCard(index === 3));
+    dispatch(setFourthCard(index === 4));
 
     const pagesContainer =
       frontendPageRef.current.querySelector(".frontend-pages");
@@ -96,8 +104,8 @@ const FrontendPage = () => {
           style={{
             width: "fit-content",
             height: "fit-content",
-            transform: thirdCard && "rotate(90deg) translateX(200%)",
-            opacity: thirdCard && "0",
+            transform: fourthCard && "rotate(90deg) translateX(200%)",
+            opacity: fourthCard && "0",
             transition: "all 0.7s ease",
           }}
         >
@@ -111,8 +119,11 @@ const FrontendPage = () => {
       <div className="frontend-pages">
         <Hero />
         <AwaDigital />
-        <SapaWeb />
-        <ReactMeals />
+        <ClipMate />
+        <FluentShop />
+        <EaziGifting />
+        {/* <SapaWeb />
+        <ReactMeals /> */}
       </div>
       <ScrollButtons
         topScrollClick={() => handleScroll("up")}

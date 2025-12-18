@@ -1,15 +1,16 @@
 import React, { useEffect, useRef } from "react";
-import codex from "../../../assets/images/synthspeak1.png";
+import banner from "../../../assets/images/eazigifting-banner.png";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 import { useDispatch, useSelector } from "react-redux";
 import { setFourthCard } from "../../../Context/portfolioSlice";
 
-const SynthSpeak = ({ id }) => {
+const EaziGifting = ({ id }) => {
   const fourthCard = useSelector((state) => state.portfolio.fourthCard);
 
   const dispatch = useDispatch();
-  const synthSpeakRef = useRef(null);
-  // console.log("synthspeak");
+  const eazigiftingRef = useRef(null);
+
+  // console.log("rect-meals");
 
   useEffect(() => {
     const observerOptions = {
@@ -30,7 +31,7 @@ const SynthSpeak = ({ id }) => {
       observerCallback,
       observerOptions
     );
-    const target = synthSpeakRef.current;
+    const target = eazigiftingRef.current;
 
     if (target) {
       observer.observe(target);
@@ -46,23 +47,22 @@ const SynthSpeak = ({ id }) => {
   return (
     <section
       id={id}
-      className="synthspeak-section"
-      ref={synthSpeakRef}
+      className="EaziGifting"
+      ref={eazigiftingRef}
       style={{ zIndex: "800000000" }}
     >
       <ProjectCard
-        title1="SynthSpeak"
-        title2="Article Summarizer"
-        description="Fullstack development"
-        Image={codex}
+        title1="Eazi Gifting"
+        title2="Web App"
+        description="Frontend Development"
+        Image={banner}
         hoverColor="#012c3a"
-        link={"https://synthspeak.web.app/"}
+        link={"https://www.eazigifting.com/"}
         homepage={false}
         isVisible={fourthCard}
-        // objectFit={"contain"}
       />
     </section>
   );
 };
 
-export default React.memo(SynthSpeak);
+export default React.memo(EaziGifting);

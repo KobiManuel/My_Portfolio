@@ -54,6 +54,7 @@ const Hero = () => {
   return (
     <section className="hero" ref={heroRef}>
       <div
+        style={{ zIndex: 100000 }}
         className={`hero-card ${heroCard ? "visible" : ""} animate-from-left`}
       >
         <h3>Kobi</h3>

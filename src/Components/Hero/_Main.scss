@@ -238,7 +238,8 @@
     align-items: normal !important;
   }
   .hero-card:first-child {
-    margin-bottom: 150px !important;
+    margin-bottom: 80px !important;
+    gap: 20px !important;
     h3 {
       font-size: 3rem !important;
     }
@@ -261,7 +262,7 @@
 
 @media screen and (max-width: 500px) {
   .hero-card:first-child {
-    margin-bottom: 100px !important;
+    margin-bottom: 80px !important;
   }
   .hero-card:nth-child(2) {
     top: 22.5% !important;

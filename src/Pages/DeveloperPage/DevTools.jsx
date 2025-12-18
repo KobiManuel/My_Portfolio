@@ -10,10 +10,14 @@ import {
   setSecondCard,
   setThirdCard,
   setHeroCard,
+  setFourthCard,
+  setFifthCard,
 } from "../../Context/portfolioSlice";
 import ScrollButtons from "../../UI/ScrollButtons/ScrollButtons";
 import BackwardArrow from "../../UI/BackwardArrow/BackwardArrow";
 import Header from "../../UI/Header/Header";
+import ClipMate from "./Clipmate/Main";
+import FluentShop from "./Fluentshop/Main";
 
 // console.log("devtools running");
 
@@ -24,8 +28,18 @@ const DeveloperPage = () => {
   const firstCard = useSelector((state) => state.portfolio.firstCard);
   const secondCard = useSelector((state) => state.portfolio.secondCard);
   const thirdCard = useSelector((state) => state.portfolio.thirdCard);
+  const fourthCard = useSelector((state) => state.portfolio.fourthCard);
 
-  const cardValues = [heroCard, firstCard, secondCard, thirdCard];
+  const fifthCard = useSelector((state) => state.portfolio.fifthCard);
+
+  const cardValues = [
+    heroCard,
+    firstCard,
+    secondCard,
+    thirdCard,
+    fourthCard,
+    fifthCard,
+  ];
 
   const handleCardClick = (index) => {
     dispatch(setHeroCard(index === 0));
@@ -94,8 +108,8 @@ const DeveloperPage = () => {
           style={{
             width: "fit-content",
             height: "fit-content",
-            transform: thirdCard && "rotate(90deg) translateX(200%)",
-            opacity: thirdCard && "0",
+            transform: fifthCard && "rotate(90deg) translateX(200%)",
+            opacity: fifthCard && "0",
             transition: "all 0.7s ease",
           }}
         >
@@ -108,6 +122,8 @@ const DeveloperPage = () => {
       </div>
       <div className="devtool-pages">
         <Hero />
+        <ClipMate />
+        <FluentShop />
         <LunaCodex />
         <SynthSpeak />
         <SvgConverter />

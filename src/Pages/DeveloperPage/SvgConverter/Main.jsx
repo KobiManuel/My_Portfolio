@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setThirdCard } from "../../../Context/portfolioSlice";
+import { setFifthCard } from "../../../Context/portfolioSlice";
 
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 import banner from "./images/banner.png";
@@ -8,7 +8,7 @@ import banner from "./images/banner.png";
 // console.log("svgconverter");
 
 const SvgConverter = ({ id }) => {
-  const thirdCard = useSelector((state) => state.portfolio.thirdCard);
+  const fifthCard = useSelector((state) => state.portfolio.fifthCard);
 
   const dispatch = useDispatch();
   const SvgConverterRef = useRef(null);
@@ -21,9 +21,9 @@ const SvgConverter = ({ id }) => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          dispatch(setThirdCard(entry.isIntersecting));
+          dispatch(setFifthCard(entry.isIntersecting));
         } else {
-          dispatch(setThirdCard(false));
+          dispatch(setFifthCard(false));
         }
       });
     };
@@ -60,7 +60,7 @@ const SvgConverter = ({ id }) => {
         hoverColor="#012c3a"
         link={"https://svg-to-jsx-converter.web.app/"}
         homepage={false}
-        isVisible={thirdCard}
+        isVisible={fifthCard}
       />
     </section>
   );

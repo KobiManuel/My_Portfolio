@@ -25,8 +25,10 @@ const PageHeader = ({ title1, title2, stack, banner }) => {
     const returnPage = document.querySelector(".backward-arrow");
     btn.style.animation = "materializeAnimation 1s forwards";
     setTimeout(() => {
-      returnPage.style.transform = "translateX(0)";
-      returnPage.style.opacity = "1";
+      if (returnPage) {
+        returnPage.style.transform = "translateX(0)";
+        returnPage.style.opacity = "1";
+      }
     }, 400);
 
     return () => {

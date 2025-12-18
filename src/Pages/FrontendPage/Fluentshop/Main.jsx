@@ -1,15 +1,16 @@
 import React, { useEffect, useRef } from "react";
-import codex from "../../../assets/images/synthspeak1.png";
+import banner from "../../../assets/images/fluentshop-banner.png";
 import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 import { useDispatch, useSelector } from "react-redux";
-import { setFourthCard } from "../../../Context/portfolioSlice";
+import { setThirdCard } from "../../../Context/portfolioSlice";
 
-const SynthSpeak = ({ id }) => {
-  const fourthCard = useSelector((state) => state.portfolio.fourthCard);
+const FluentShop = ({ id }) => {
+  const thirdCard = useSelector((state) => state.portfolio.thirdCard);
 
   const dispatch = useDispatch();
-  const synthSpeakRef = useRef(null);
-  // console.log("synthspeak");
+  const fluentshopRef = useRef(null);
+
+  // console.log("rect-meals");
 
   useEffect(() => {
     const observerOptions = {
@@ -19,9 +20,9 @@ const SynthSpeak = ({ id }) => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          dispatch(setFourthCard(entry.isIntersecting));
+          dispatch(setThirdCard(entry.isIntersecting));
         } else {
-          dispatch(setFourthCard(false));
+          dispatch(setThirdCard(false));
         }
       });
     };
@@ -30,7 +31,7 @@ const SynthSpeak = ({ id }) => {
       observerCallback,
       observerOptions
     );
-    const target = synthSpeakRef.current;
+    const target = fluentshopRef.current;
 
     if (target) {
       observer.observe(target);
@@ -46,23 +47,22 @@ const SynthSpeak = ({ id }) => {
   return (
     <section
       id={id}
-      className="synthspeak-section"
-      ref={synthSpeakRef}
+      className="FluentShop"
+      ref={fluentshopRef}
       style={{ zIndex: "800000000" }}
     >
       <ProjectCard
-        title1="SynthSpeak"
-        title2="Article Summarizer"
-        description="Fullstack development"
-        Image={codex}
+        title1="Fluentshop.ai"
+        title2="Web App"
+        description="Frontend Development"
+        Image={banner}
         hoverColor="#012c3a"
-        link={"https://synthspeak.web.app/"}
+        link={"https://www.tryfluent.shop/"}
         homepage={false}
-        isVisible={fourthCard}
-        // objectFit={"contain"}
+        isVisible={thirdCard}
       />
     </section>
   );
 };
 
-export default React.memo(SynthSpeak);
+export default React.memo(FluentShop);

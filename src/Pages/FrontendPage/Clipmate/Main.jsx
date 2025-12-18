@@ -1,16 +1,16 @@
 import React, { useEffect, useRef } from "react";
-import codex from "../../../assets/images/lunacodex1.png";
-import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 import { useDispatch, useSelector } from "react-redux";
-import { setThirdCard } from "../../../Context/portfolioSlice";
+import { setSecondCard } from "../../../Context/portfolioSlice";
+import banner from "../../../assets/images/climate-banner-1.png";
+import ProjectCard from "../../../UI/ProjectCard/ProjectCard";
 
-const LunaCodex = ({ id }) => {
-  const thirdCard = useSelector((state) => state.portfolio.thirdCard);
+const ClipMate = ({ id }) => {
+  const secondCard = useSelector((state) => state.portfolio.secondCard);
 
   const dispatch = useDispatch();
-  const lunaCodexRef = useRef(null);
+  const clipmateRef = useRef(null);
 
-  // console.log("lunacodex");
+  // console.log("sapa-web");
 
   useEffect(() => {
     const observerOptions = {
@@ -20,9 +20,9 @@ const LunaCodex = ({ id }) => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          dispatch(setThirdCard(entry.isIntersecting));
+          dispatch(setSecondCard(entry.isIntersecting));
         } else {
-          dispatch(setThirdCard(false));
+          dispatch(setSecondCard(false));
         }
       });
     };
@@ -31,7 +31,7 @@ const LunaCodex = ({ id }) => {
       observerCallback,
       observerOptions
     );
-    const target = lunaCodexRef.current;
+    const target = clipmateRef.current;
 
     if (target) {
       observer.observe(target);
@@ -47,23 +47,22 @@ const LunaCodex = ({ id }) => {
   return (
     <section
       id={id}
-      className="lunaCodex"
-      ref={lunaCodexRef}
+      className="ClipMate"
+      ref={clipmateRef}
       style={{ zIndex: "800000000" }}
     >
       <ProjectCard
-        title1="L.U.N.A"
-        title2="Neural Assistant"
-        description="Fullstack development"
-        Image={codex}
+        title1="ClipMate"
+        title2="Web App"
+        description="Frontend Development"
+        Image={banner}
         hoverColor="#012c3a"
-        link={"https://luna-codex.web.app/"}
+        link={"https://clipmate-home-v1.vercel.app/"}
         homepage={false}
-        isVisible={thirdCard}
-        // objectFit={"contain"}
+        isVisible={secondCard}
       />
     </section>
   );
 };
 
-export default React.memo(LunaCodex);
+export default React.memo(ClipMate);

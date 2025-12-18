@@ -132,14 +132,15 @@
     img {
       position: absolute;
       left: 0;
-      height: 400px;
-      width: 0;
+      // height: 400px;
       height: 100%;
       object-fit: cover;
+      will-change: width; /* Optimize for width changes */
+      backface-visibility: hidden; /* Prevent flickering */
       &.visible {
-        width: 100%;
+        // width: 100%;
         &.animate-to-right {
-          animation: unroll-animation 1s linear forwards;
+          animation: unroll-animation 0.6s linear forwards;
         }
       }
     }
@@ -152,11 +153,11 @@
   .project-card:nth-child(2).blue-bg::before {
     content: "";
     position: absolute;
-    left: 0; /* Adjusted to match the width of the red light */
-    width: 80px;
+    left: -5%; /* Adjusted to match the width of the red light */
+    width: 200px;
     height: 100%;
     background: linear-gradient(to right, #00231a, #ee5258);
-    animation: red-light-animation 1s linear forwards;
+    animation: red-light-animation 0.6s linear forwards;
   }
 }
 
@@ -202,6 +203,10 @@
 
 .ripple-5 {
   animation-delay: 5s;
+}
+
+.scale-down {
+  transform: scale(0.8);
 }
 
 @media screen and (max-width: 900px) {
